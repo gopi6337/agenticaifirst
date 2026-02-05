@@ -91,6 +91,7 @@ body {
   position: relative;
   background: var(--color-slate-900);
   border-radius: 1rem;
+  isolation: isolate;
 }
 
 .gradient-border::before {
@@ -105,6 +106,7 @@ body {
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   pointer-events: none;
+  z-index: -1;
 }
 
 /* Pulse glow for CTA */
