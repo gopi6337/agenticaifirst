@@ -86,27 +86,14 @@ body {
   box-shadow: 0 0 30px rgba(124, 58, 237, 0.3), 0 0 60px rgba(59, 130, 246, 0.15);
 }
 
-/* Gradient border effect */
+/* Gradient border effect — uses background-clip trick (no mask needed) */
 .gradient-border {
   position: relative;
-  background: var(--color-slate-900);
+  background:
+    linear-gradient(var(--color-slate-900), var(--color-slate-900)) padding-box,
+    linear-gradient(135deg, var(--color-purple-vivid), var(--color-blue-electric), var(--color-pink-hot)) border-box;
+  border: 1px solid transparent;
   border-radius: 1rem;
-  isolation: isolate;
-}
-
-.gradient-border::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 1rem;
-  padding: 1px;
-  background: linear-gradient(135deg, var(--color-purple-vivid), var(--color-blue-electric), var(--color-pink-hot));
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  pointer-events: none;
-  z-index: -1;
 }
 
 /* Pulse glow for CTA */
@@ -134,22 +121,3 @@ body {
   opacity: 0.3;
 }
 
-/* Service card - fixed height with centered content */
-.service-card {
-  min-height: 240px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-/* Why us card - fixed height with centered content */
-.why-us-card {
-  min-height: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}

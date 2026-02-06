@@ -8,21 +8,24 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AgenticAI - Intelligent AI Solutions for Modern Business",
+  title: "AgenticAI First - Everything AI, Under One Roof",
   description:
-    "AgenticAI delivers cutting-edge agentic AI solutions that automate workflows, enhance decision-making, and drive growth for forward-thinking businesses.",
+    "AgenticAI First delivers cutting-edge agentic AI solutions that automate workflows, enhance decision-making, and drive growth for forward-thinking businesses.",
   keywords: [
     "AI",
     "Agentic AI",
     "Artificial Intelligence",
     "Automation",
     "Machine Learning",
+    "AI as a Service",
   ],
+  metadataBase: new URL("https://agenticaifirst.com"),
   openGraph: {
-    title: "AgenticAI - Intelligent AI Solutions for Modern Business",
+    title: "AgenticAI First - Everything AI, Under One Roof",
     description:
       "Transform your business with autonomous AI agents that think, plan, and execute.",
     type: "website",
+    url: "https://agenticaifirst.com",
   },
 };
 

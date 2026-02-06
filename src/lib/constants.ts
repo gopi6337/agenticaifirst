@@ -8,40 +8,76 @@ export const NAV_LINKS = [
 
 export const SERVICES = [
   {
-    title: "AI Strategy Consulting",
+    title: "Full Stack Software Development",
     description:
-      "We assess your business landscape and design a tailored AI roadmap that aligns with your goals, timeline, and budget.",
-    icon: "strategy",
+      "End-to-end web and mobile applications built with modern architectures. From MVPs to enterprise platforms, we deliver scalable, maintainable software tailored to your business goals.",
+    icon: "fullstack",
   },
   {
-    title: "Custom AI Agent Development",
+    title: "Workflow Automations",
     description:
-      "Purpose-built autonomous agents that handle complex workflows, make decisions, and learn from every interaction.",
-    icon: "agent",
-  },
-  {
-    title: "Process Automation",
-    description:
-      "Identify bottlenecks and deploy intelligent automation that reduces manual effort by up to 80% across your operations.",
+      "Streamline repetitive tasks and complex business processes with intelligent automation. We connect your tools, eliminate bottlenecks, and free your team to focus on high-value work.",
     icon: "automation",
   },
   {
-    title: "Data Analytics & Insights",
+    title: "AI Employees",
     description:
-      "Transform raw data into actionable intelligence with AI-powered dashboards, predictions, and anomaly detection.",
+      "Purpose-built autonomous agents that join your team — handling customer support, data entry, scheduling, and more. They learn, adapt, and operate 24/7 without supervision.",
+    icon: "agent",
+  },
+  {
+    title: "Security Audits for AI Projects",
+    description:
+      "Comprehensive security assessments for AI systems — covering data privacy, prompt injection, model vulnerabilities, and compliance. Protect your AI investments before they go live.",
+    icon: "security",
+  },
+  {
+    title: "Customer Support Solutions",
+    description:
+      "Build an always-on support experience powered by AI. Intelligent ticketing, auto-routing, sentiment analysis, and escalation workflows that resolve issues faster — without scaling headcount.",
+    icon: "support",
+  },
+  {
+    title: "Voice AI & Speech Solutions",
+    description:
+      "Build voice-enabled experiences — IVR systems, voice assistants, transcription pipelines, and real-time speech analytics for call centers and customer interactions.",
+    icon: "voice",
+  },
+  {
+    title: "AI Integration & API Development",
+    description:
+      "Seamlessly plug AI capabilities into your existing tech stack. We build robust APIs, connect third-party AI services, and ensure everything works together without disrupting your operations.",
+    icon: "integration",
+  },
+  {
+    title: "Data Analytics & Business Intelligence",
+    description:
+      "Turn raw data into decisions. We build AI-powered dashboards, predictive models, and anomaly detection systems that surface the insights your team actually needs.",
     icon: "analytics",
   },
   {
-    title: "Natural Language Solutions",
+    title: "AI Consulting & Strategy",
     description:
-      "Deploy conversational AI, document processing, and semantic search that understands context and intent.",
-    icon: "nlp",
+      "Not sure where AI fits in your business? We assess your workflows, identify high-impact opportunities, and design a practical AI roadmap aligned with your goals, timeline, and budget.",
+    icon: "strategy",
   },
   {
-    title: "AI Integration & APIs",
+    title: "AI-Powered Content Generation",
     description:
-      "Seamlessly connect AI capabilities into your existing tech stack with robust, scalable API integrations.",
-    icon: "integration",
+      "Automate content at scale — marketing copy, product descriptions, reports, and summaries. We build custom generation pipelines that match your brand voice and quality standards.",
+    icon: "content",
+  },
+  {
+    title: "Computer Vision Solutions",
+    description:
+      "Extract intelligence from images and video — quality inspection, document OCR, object detection, and visual search tailored to your industry.",
+    icon: "vision",
+  },
+  {
+    title: "AI Training & Upskilling",
+    description:
+      "Empower your team with hands-on AI workshops, bootcamps, and certification programs designed for non-technical and technical staff alike.",
+    icon: "training",
   },
 ];
 
@@ -102,7 +138,7 @@ export const DIFFERENTIATORS = [
 export const TESTIMONIALS = [
   {
     quote:
-      "AgenticAI transformed our customer support operations. Their AI agents handle 70% of inquiries autonomously, and our satisfaction scores have never been higher.",
+      "AgenticAI First transformed our customer support operations. Their AI agents handle 70% of inquiries autonomously, and our satisfaction scores have never been higher.",
     name: "Sarah Chen",
     role: "VP of Operations",
     company: "TechFlow Inc.",

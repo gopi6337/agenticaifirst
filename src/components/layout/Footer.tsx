@@ -20,7 +20,7 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
                 </svg>
               </div>
-              <span className="text-lg font-bold text-white">AgenticAI</span>
+              <span className="text-lg font-bold text-white">AgenticAI First</span>
             </a>
             <p className="text-sm text-slate-400 mb-6">
               Intelligent AI solutions that automate, optimize, and transform your business.
@@ -79,7 +79,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-slate-500">
-            &copy; {new Date().getFullYear()} AgenticAI. All rights reserved.
+            &copy; {new Date().getFullYear()} AgenticAI First. All rights reserved.
           </p>
           <p className="text-sm text-slate-500">
             Built with intelligence. Powered by purpose.

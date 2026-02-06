@@ -37,7 +37,7 @@ export default function WhyChooseUsSection() {
           {/* Left: text */}
           <div className="scroll-reveal">
             <span className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold bg-purple-vivid/10 text-purple-vivid border border-purple-vivid/20 mb-4">
-              Why AgenticAI
+              Why AgenticAI First
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               The{" "}
@@ -61,26 +61,19 @@ export default function WhyChooseUsSection() {
             {DIFFERENTIATORS.map((diff) => (
               <div
                 key={diff.title}
-                className="gradient-border card-glow rounded-2xl scroll-reveal"
-                style={{
-                  minHeight: '220px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  textAlign: 'center',
-                  padding: '1.25rem'
-                }}
+                className="gradient-border card-glow rounded-2xl scroll-reveal min-h-[220px] flex"
               >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-vivid/20 to-blue-electric/20 flex items-center justify-center text-purple-vivid mb-3">
-                  {icons[diff.icon]}
+                <div className="flex-1 flex flex-col justify-center items-center text-center p-5">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-vivid/20 to-blue-electric/20 flex items-center justify-center text-purple-vivid mb-3">
+                    {icons[diff.icon]}
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2">
+                    {diff.title}
+                  </h3>
+                  <p className="text-sm text-slate-200 leading-relaxed">
+                    {diff.description}
+                  </p>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">
-                  {diff.title}
-                </h3>
-                <p className="text-sm text-slate-200 leading-relaxed">
-                  {diff.description}
-                </p>
               </div>
             ))}
           </div>

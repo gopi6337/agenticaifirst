@@ -32,7 +32,7 @@ export default function Navbar() {
               </svg>
             </div>
             <span className="text-xl font-bold text-white group-hover:text-purple-vivid transition-colors">
-              AgenticAI
+              AgenticAI First
             </span>
           </a>
 
