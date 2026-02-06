@@ -61,7 +61,16 @@ export default function WhyChooseUsSection() {
             {DIFFERENTIATORS.map((diff) => (
               <div
                 key={diff.title}
-                className="gradient-border card-glow p-5 rounded-2xl scroll-reveal"
+                className="gradient-border card-glow rounded-2xl scroll-reveal"
+                style={{
+                  minHeight: '220px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  padding: '1.25rem'
+                }}
               >
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-vivid/20 to-blue-electric/20 flex items-center justify-center text-purple-vivid mb-3">
                   {icons[diff.icon]}
@@ -69,7 +78,7 @@ export default function WhyChooseUsSection() {
                 <h3 className="text-lg font-bold text-white mb-2">
                   {diff.title}
                 </h3>
-                <p className="text-sm text-slate-400 leading-relaxed">
+                <p className="text-sm text-slate-200 leading-relaxed">
                   {diff.description}
                 </p>
               </div>

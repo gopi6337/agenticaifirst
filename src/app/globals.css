@@ -133,3 +133,23 @@ body {
   background: linear-gradient(90deg, var(--color-purple-vivid), var(--color-blue-electric));
   opacity: 0.3;
 }
+
+/* Service card - fixed height with centered content */
+.service-card {
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Why us card - fixed height with centered content */
+.why-us-card {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

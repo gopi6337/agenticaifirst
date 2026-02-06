@@ -39,12 +39,23 @@ type ServiceCardProps = {
 
 export default function ServiceCard({ title, description, icon }: ServiceCardProps) {
   return (
-    <div className="gradient-border card-glow p-6 rounded-2xl scroll-reveal">
+    <div
+      className="gradient-border card-glow rounded-2xl scroll-reveal"
+      style={{
+        minHeight: '280px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        textAlign: 'center',
+        padding: '1.5rem'
+      }}
+    >
       <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-vivid/20 to-blue-electric/20 flex items-center justify-center text-purple-vivid mb-4">
         {icons[icon]}
       </div>
       <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
-      <p className="text-slate-400 leading-relaxed">{description}</p>
+      <p className="text-slate-200 leading-relaxed">{description}</p>
     </div>
   );
 }
