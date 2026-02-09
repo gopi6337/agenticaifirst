@@ -31,9 +31,14 @@ export default function Navbar() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
               </svg>
             </div>
-            <span className="text-xl font-bold text-white group-hover:text-purple-vivid transition-colors">
-              AgenticAI First
-            </span>
+            <div className="flex flex-col">
+              <span className="text-xl font-bold text-white group-hover:text-purple-vivid transition-colors leading-tight">
+                Agentic AI First
+              </span>
+              <span className="text-[10px] text-slate-400 tracking-widest uppercase">
+                AI as a Service
+              </span>
+            </div>
           </a>
 
           {/* Desktop links */}
