@@ -76,7 +76,7 @@ export default function Navbar() {
         {/* Mobile menu */}
         <div
           className={`md:hidden overflow-hidden transition-all duration-300 ${
-            isOpen ? "max-h-96 pb-4" : "max-h-0"
+            isOpen ? "max-h-96 pb-4 bg-slate-950/95 backdrop-blur-xl" : "max-h-0"
           }`}
         >
           <div className="flex flex-col gap-3 pt-2">
