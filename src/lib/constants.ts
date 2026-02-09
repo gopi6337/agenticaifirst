@@ -14,15 +14,21 @@ export const SERVICES = [
     icon: "fullstack",
   },
   {
+    title: "Legacy Modernization & Migration",
+    description:
+      "Stuck with outdated code? We transform your legacy systems into modern tech stacks — improving performance, maintainability, and scalability without disrupting your business operations.",
+    icon: "migration",
+  },
+  {
     title: "Workflow Automations",
     description:
-      "Streamline repetitive tasks and complex business processes with intelligent automation. We connect your tools, eliminate bottlenecks, and free your team to focus on high-value work.",
+      "Stop wasting time on repetitive tasks. We automate your business processes, connect your tools, and eliminate bottlenecks — so your team focuses on what actually matters.",
     icon: "automation",
   },
   {
     title: "AI Employees",
     description:
-      "Purpose-built autonomous agents that join your team — handling customer support, data entry, scheduling, and more. They learn, adapt, and operate 24/7 without supervision.",
+      "Hire AI agents that work 24/7 — handling customer queries, data entry, scheduling, and more. They learn, adapt, and get better over time without supervision.",
     icon: "agent",
   },
   {
@@ -34,7 +40,7 @@ export const SERVICES = [
   {
     title: "Customer Support Solutions",
     description:
-      "Build an always-on support experience powered by AI. Intelligent ticketing, auto-routing, sentiment analysis, and escalation workflows that resolve issues faster — without scaling headcount.",
+      "AI-powered support that actually resolves issues. Intelligent ticketing, auto-routing, sentiment analysis — scale your support without scaling headcount.",
     icon: "support",
   },
   {
@@ -50,9 +56,9 @@ export const SERVICES = [
     icon: "integration",
   },
   {
-    title: "Data Analytics & Business Intelligence",
+    title: "Data Analytics & Intelligent Content",
     description:
-      "Turn raw data into decisions. We build AI-powered dashboards, predictive models, and anomaly detection systems that surface the insights your team actually needs.",
+      "Turn raw data into decisions and content. AI-powered dashboards, predictive models, anomaly detection, and automated content generation — from reports to marketing copy — all matching your brand standards.",
     icon: "analytics",
   },
   {
@@ -60,12 +66,6 @@ export const SERVICES = [
     description:
       "Not sure where AI fits in your business? We assess your workflows, identify high-impact opportunities, and design a practical AI roadmap aligned with your goals, timeline, and budget.",
     icon: "strategy",
-  },
-  {
-    title: "AI-Powered Content Generation",
-    description:
-      "Automate content at scale — marketing copy, product descriptions, reports, and summaries. We build custom generation pipelines that match your brand voice and quality standards.",
-    icon: "content",
   },
   {
     title: "Computer Vision Solutions",
@@ -86,25 +86,25 @@ export const STEPS = [
     number: 1,
     title: "Discovery",
     description:
-      "We dive deep into your business processes, challenges, and goals to identify the highest-impact AI opportunities.",
+      "We start by understanding your business — your processes, pain points, and goals. This helps us identify where AI creates the most impact.",
   },
   {
     number: 2,
     title: "Design",
     description:
-      "Our team architects a custom solution with clear milestones, selecting the right models and frameworks for your needs.",
+      "We architect a custom solution with clear milestones, picking the right AI models and frameworks for your specific needs.",
   },
   {
     number: 3,
     title: "Deploy",
     description:
-      "We build, test, and launch your AI solution with rigorous quality assurance and seamless integration into your workflow.",
+      "We build, test, and launch — with rigorous QA and seamless integration into your existing workflow. No disruptions.",
   },
   {
     number: 4,
     title: "Optimize",
     description:
-      "Continuous monitoring, fine-tuning, and iteration ensure your AI agents improve and deliver increasing ROI over time.",
+      "Post-launch, we monitor, fine-tune, and iterate. Your AI gets smarter and delivers increasing ROI over time.",
   },
 ];
 
@@ -112,19 +112,19 @@ export const DIFFERENTIATORS = [
   {
     title: "Agentic-First Approach",
     description:
-      "We don't just build tools—we build autonomous agents that think, plan, and execute multi-step tasks independently.",
+      "We don't just build tools — we build autonomous agents that think, plan, and execute complex tasks independently.",
     icon: "brain",
   },
   {
-    title: "Enterprise-Grade Security",
+    title: "25+ Years of Tech Expertise",
     description:
-      "SOC 2 compliant infrastructure with end-to-end encryption, role-based access, and comprehensive audit trails.",
+      "Deep industry experience across software, automation, and now AI. We've seen what works and what doesn't.",
     icon: "shield",
   },
   {
     title: "Rapid Deployment",
     description:
-      "Go from concept to production in weeks, not months. Our modular architecture accelerates every engagement.",
+      "Concept to production in weeks, not months. Our modular architecture accelerates every engagement.",
     icon: "rocket",
   },
   {

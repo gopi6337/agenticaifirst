@@ -34,24 +34,24 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="scroll-reveal">
           <span className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold bg-purple-vivid/10 text-purple-vivid border border-purple-vivid/20 mb-6">
-            Where AI Meets Action
+            Autonomous AI Solutions for Modern Business
           </span>
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 scroll-reveal">
-          Build Smarter with{" "}
+          Your Business, Powered by{" "}
           <span className="gradient-text">Agentic AI</span>
         </h1>
 
         <p className="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed scroll-reveal">
-          Autonomous AI agents that think, plan, and execute. Transform your
-          workflows with intelligent automation that delivers measurable results
-          from day one.
+          We build autonomous AI agents that think, plan, and execute —
+          automating your workflows, cutting costs, and delivering results.
+          25+ years of tech expertise, now focused on the AI revolution.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 scroll-reveal">
           <Button href="#contact" size="lg">
-            Start Your AI Journey
+            Book a Consultation
           </Button>
           <Button href="#services" variant="outline" size="lg">
             Explore Services
@@ -61,9 +61,9 @@ export default function HeroSection() {
         {/* Stats bar */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 scroll-reveal">
           {[
-            { value: "500+", label: "Projects Delivered" },
-            { value: "98%", label: "Client Satisfaction" },
-            { value: "80%", label: "Cost Reduction" },
+            { value: "25+", label: "Years of Experience" },
+            { value: "12", label: "AI Solutions" },
+            { value: "100%", label: "Commitment to Results" },
             { value: "24/7", label: "AI Uptime" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">

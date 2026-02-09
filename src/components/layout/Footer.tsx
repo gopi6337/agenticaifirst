@@ -23,7 +23,7 @@ export default function Footer() {
               <span className="text-lg font-bold text-white">AgenticAI First</span>
             </a>
             <p className="text-sm text-slate-400 mb-6">
-              Intelligent AI solutions that automate, optimize, and transform your business.
+              Building autonomous AI solutions that think, plan, and execute for your business.
             </p>
             {/* Social icons */}
             <div className="flex gap-3">
@@ -79,7 +79,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-slate-500">
-            &copy; {new Date().getFullYear()} AgenticAI First. All rights reserved.
+            &copy; 2026 Agentic AI First. All rights reserved.
           </p>
           <p className="text-sm text-slate-500">
             Built with intelligence. Powered by purpose.

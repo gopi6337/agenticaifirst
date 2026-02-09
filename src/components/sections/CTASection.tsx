@@ -13,8 +13,8 @@ export default function CTASection() {
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           label="Get In Touch"
-          title="Ready to Transform Your Business?"
-          description="Tell us about your project and we'll show you how agentic AI can deliver measurable results."
+          title="Ready to Transform Your Business with AI?"
+          description="Send us your enquiry and discover how agentic AI can automate your workflows, cut costs, and drive growth."
         />
         <div className="gradient-border rounded-2xl p-6 md:p-8 scroll-reveal">
           <ContactForm />

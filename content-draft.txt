@@ -1,0 +1,106 @@
+========================================
+AGENTIC AI FIRST — FINAL CONTENT DRAFT v2
+========================================
+
+== HERO SECTION ==
+
+Badge: Autonomous AI Solutions for Modern Business
+Headline: Your Business, Powered by Agentic AI
+Subtext: We build autonomous AI agents that think, plan, and execute — automating your workflows, cutting costs, and delivering results. 25+ years of tech expertise, now focused on the AI revolution.
+Button 1: Book a Consultation (#contact)
+Button 2: Explore Services (#services)
+Stats:
+- 25+ → Years of Experience
+- 12 → AI Solutions
+- 100% → Commitment to Results
+- 24/7 → AI Uptime
+
+
+== SERVICES (12) ==
+
+1. Full Stack Software Development
+End-to-end web and mobile applications built with modern architectures. From MVPs to enterprise platforms, we deliver scalable, maintainable software tailored to your business goals.
+
+2. Legacy Modernization & Migration [NEW]
+Stuck with outdated code? We transform your legacy systems into modern tech stacks — improving performance, maintainability, and scalability without disrupting your business operations.
+
+3. Workflow Automations
+Stop wasting time on repetitive tasks. We automate your business processes, connect your tools, and eliminate bottlenecks — so your team focuses on what actually matters.
+
+4. AI Employees
+Hire AI agents that work 24/7 — handling customer queries, data entry, scheduling, and more. They learn, adapt, and get better over time without supervision.
+
+5. Security Audits for AI Projects
+Comprehensive security assessments for AI systems — covering data privacy, prompt injection, model vulnerabilities, and compliance. Protect your AI investments before they go live.
+
+6. Customer Support Solutions
+AI-powered support that actually resolves issues. Intelligent ticketing, auto-routing, sentiment analysis — scale your support without scaling headcount.
+
+7. Voice AI & Speech Solutions
+Build voice-enabled experiences — IVR systems, voice assistants, transcription pipelines, and real-time speech analytics for call centers and customer interactions.
+
+8. AI Integration & API Development
+Seamlessly plug AI capabilities into your existing tech stack. We build robust APIs, connect third-party AI services, and ensure everything works together without disrupting your operations.
+
+9. Data Analytics & Intelligent Content [MERGED]
+Turn raw data into decisions and content. AI-powered dashboards, predictive models, anomaly detection, and automated content generation — from reports to marketing copy — all matching your brand standards.
+
+10. AI Consulting & Strategy
+Not sure where AI fits in your business? We assess your workflows, identify high-impact opportunities, and design a practical AI roadmap aligned with your goals, timeline, and budget.
+
+11. Computer Vision Solutions
+Extract intelligence from images and video — quality inspection, document OCR, object detection, and visual search tailored to your industry.
+
+12. AI Training & Upskilling
+Empower your team with hands-on AI workshops, bootcamps, and certification programs designed for non-technical and technical staff alike.
+
+
+== HOW IT WORKS ==
+
+Step 1: Discovery
+We start by understanding your business — your processes, pain points, and goals. This helps us identify where AI creates the most impact.
+
+Step 2: Design
+We architect a custom solution with clear milestones, picking the right AI models and frameworks for your specific needs.
+
+Step 3: Deploy
+We build, test, and launch — with rigorous QA and seamless integration into your existing workflow. No disruptions.
+
+Step 4: Optimize
+Post-launch, we monitor, fine-tune, and iterate. Your AI gets smarter and delivers increasing ROI over time.
+
+
+== WHY CHOOSE US ==
+
+1. Agentic-First Approach
+We don't just build tools — we build autonomous agents that think, plan, and execute complex tasks independently.
+
+2. 25+ Years of Tech Expertise
+Deep industry experience across software, automation, and now AI. We've seen what works and what doesn't.
+
+3. Rapid Deployment
+Concept to production in weeks, not months. Our modular architecture accelerates every engagement.
+
+4. Measurable ROI
+Every solution includes built-in analytics so you can track performance, cost savings, and business impact from day one.
+
+
+== TESTIMONIALS ==
+[PENDING — Gopi will provide real content]
+
+
+== CTA ==
+
+Heading: Ready to Transform Your Business with AI?
+Subtext: Send us your enquiry and discover how agentic AI can automate your workflows, cut costs, and drive growth.
+Button: Enquire Now (#contact)
+
+
+== FOOTER ==
+
+Tagline: Agentic AI First — Building autonomous AI solutions that think, plan, and execute for your business.
+Copyright: © 2026 Agentic AI First. All rights reserved.
+
+========================================
+APPROVED — Ready to update site code.
+========================================
