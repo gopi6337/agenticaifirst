@@ -47,7 +47,7 @@ export default function AboutSection() {
   const ref = useScrollReveal();
 
   return (
-    <section id="about" ref={ref} className="py-24 relative">
+    <section id="about" ref={ref} className="py-12 md:py-24 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-violet-deep/10 to-slate-950" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
