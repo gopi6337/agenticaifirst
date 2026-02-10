@@ -13,7 +13,7 @@ export default function ServicesSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/50 to-slate-950" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          label="AgenticAI First"
+          label="Agentic AI First"
           title="Everything AI, Under One Roof"
           description="From strategy to deployment, we deliver end-to-end AI solutions tailored to your unique business challenges."
         />
