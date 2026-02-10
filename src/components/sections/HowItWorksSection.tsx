@@ -9,7 +9,7 @@ export default function HowItWorksSection() {
   const ref = useScrollReveal();
 
   return (
-    <section id="how-it-works" ref={ref} className="py-24 relative">
+    <section id="how-it-works" ref={ref} className="py-12 md:py-24 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           label="Our Process"
