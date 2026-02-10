@@ -8,7 +8,7 @@ export default function CTASection() {
   const ref = useScrollReveal();
 
   return (
-    <section id="contact" ref={ref} className="py-12 md:py-24 relative">
+    <section id="contact" ref={ref} className="py-12 md:py-16 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-violet-deep/10 to-slate-950" />
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
