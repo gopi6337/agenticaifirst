@@ -85,31 +85,7 @@ export const SERVICES = [
 
 export const INDUSTRIES = [
   {
-    title: "Sales & Marketing",
-    description:
-      "AI agents for lead gen, email outreach, CRM automation, and market analysis. Go-to-market 10x faster.",
-    icon: "sales",
-  },
-  {
-    title: "Customer Support",
-    description:
-      "Intelligent ticketing, auto-resolution, sentiment analysis. Handle 70% of inquiries without human intervention.",
-    icon: "support",
-  },
-  {
-    title: "Finance & Accounting",
-    description:
-      "Automated bookkeeping, fraud detection, invoice processing, and financial reporting powered by AI.",
-    icon: "finance",
-  },
-  {
-    title: "HR & Recruitment",
-    description:
-      "AI-driven talent sourcing, resume screening, onboarding workflows, and employee engagement analytics.",
-    icon: "hr",
-  },
-  {
-    title: "IT & Operations",
+    title: "IT & Services",
     description:
       "DevOps automation, helpdesk agents, infrastructure monitoring, and workflow optimization at scale.",
     icon: "it",
@@ -119,6 +95,42 @@ export const INDUSTRIES = [
     description:
       "Patient intake automation, appointment scheduling, personalized learning, and compliance monitoring.",
     icon: "healthcare",
+  },
+  {
+    title: "Telecom Services",
+    description:
+      "Network optimization, predictive maintenance, customer churn analysis, and automated service provisioning with AI.",
+    icon: "telecom",
+  },
+  {
+    title: "E-Commerce & Retail",
+    description:
+      "AI-powered product recommendations, inventory management, dynamic pricing, and personalized shopping experiences.",
+    icon: "ecommerce",
+  },
+  {
+    title: "Finance & Accounting",
+    description:
+      "Automated bookkeeping, fraud detection, invoice processing, and financial reporting powered by AI.",
+    icon: "finance",
+  },
+  {
+    title: "Customer Support",
+    description:
+      "Intelligent ticketing, auto-resolution, sentiment analysis. Handle 70% of inquiries without human intervention.",
+    icon: "support",
+  },
+  {
+    title: "HR & Recruitment",
+    description:
+      "AI-driven talent sourcing, resume screening, onboarding workflows, and employee engagement analytics.",
+    icon: "hr",
+  },
+  {
+    title: "Sales & Marketing",
+    description:
+      "AI agents for lead gen, email outreach, CRM automation, and market analysis. Go-to-market 10x faster.",
+    icon: "sales",
   },
 ];
 

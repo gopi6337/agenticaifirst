@@ -5,12 +5,14 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const INDUSTRY_ICONS: Record<string, string> = {
-  sales: "📈",
-  support: "🎧",
-  finance: "💰",
-  hr: "👥",
   it: "⚙️",
   healthcare: "🏥",
+  ecommerce: "🛒",
+  telecom: "📡",
+  finance: "💰",
+  support: "🎧",
+  hr: "👥",
+  sales: "📈",
 };
 
 export default function IndustriesSection() {
