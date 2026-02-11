@@ -4,7 +4,7 @@ export const NAV_LINKS = [
   { label: "How It Works", href: "#how-it-works" },
   { label: "Why Us", href: "#why-us" },
   { label: "About", href: "#about" },
-  { label: "Testimonials", href: "#testimonials" },
+  { label: "Blog", href: "#blog" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -222,7 +222,7 @@ export const FOOTER_LINKS = {
   company: [
     { label: "About Us", href: "#why-us" },
     { label: "Careers", href: "#" },
-    { label: "Blog", href: "#" },
+    { label: "Blog", href: "#blog" },
     { label: "Press", href: "#" },
   ],
   resources: [
