@@ -36,22 +36,33 @@ export default function CaseStudiesSection() {
               </h3>
 
               {expanded === i ? (
-                <div className="space-y-4 animate-in fade-in duration-300">
+                <div className="space-y-4">
                   <div>
-                    <h4 className="text-sm font-semibold text-red-400 mb-1">Challenge</h4>
-                    <p className="text-slate-400 text-sm leading-relaxed">{cs.challenge}</p>
+                    <h4 className="text-sm font-semibold text-red-400 mb-2">Challenges</h4>
+                    <ul className="space-y-1">
+                      {cs.challenges.map((c, j) => (
+                        <li key={j} className="flex items-start gap-2 text-sm text-slate-400">
+                          <span className="text-red-400 mt-0.5">•</span>{c}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-blue-400 mb-1">Solution</h4>
-                    <p className="text-slate-400 text-sm leading-relaxed">{cs.solution}</p>
+                    <h4 className="text-sm font-semibold text-blue-400 mb-2">AI Agents Deployed</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {cs.agents.map((a, j) => (
+                        <span key={j} className="text-xs px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                          {a}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                   <div>
                     <h4 className="text-sm font-semibold text-green-400 mb-2">Results</h4>
                     <ul className="space-y-1.5">
                       {cs.results.map((r, j) => (
                         <li key={j} className="flex items-start gap-2 text-sm text-slate-300">
-                          <span className="text-green-400 mt-0.5">✓</span>
-                          {r}
+                          <span className="text-green-400 mt-0.5">✓</span>{r}
                         </li>
                       ))}
                     </ul>
@@ -60,15 +71,11 @@ export default function CaseStudiesSection() {
                 </div>
               ) : (
                 <div>
-                  <p className="text-slate-400 text-sm leading-relaxed line-clamp-2">
-                    {cs.challenge}
-                  </p>
+                  <p className="text-slate-400 text-sm">{cs.challenges[0]}</p>
                   <div className="flex items-center gap-4 mt-4 pt-3 border-t border-white/[0.06]">
-                    <span className="text-green-400 text-sm font-semibold">
-                      {cs.results[0]}
-                    </span>
+                    <span className="text-green-400 text-sm font-semibold">{cs.results[0]}</span>
                   </div>
-                  <p className="text-purple-vivid text-xs mt-2">Click to read full case study →</p>
+                  <p className="text-purple-vivid text-xs mt-2">Click to expand →</p>
                 </div>
               )}
             </div>
