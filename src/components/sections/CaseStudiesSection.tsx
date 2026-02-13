@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CASE_STUDIES } from "@/lib/casestudies";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import Link from "next/link";
 
 export default function CaseStudiesSection() {
   const ref = useScrollReveal();
@@ -75,7 +76,16 @@ export default function CaseStudiesSection() {
                   <div className="flex items-center gap-4 mt-4 pt-3 border-t border-white/[0.06]">
                     <span className="text-green-400 text-sm font-semibold">{cs.results[0]}</span>
                   </div>
-                  <p className="text-purple-vivid text-xs mt-2">Click to expand →</p>
+                  <div className="flex items-center justify-between mt-2">
+                    <p className="text-purple-vivid text-xs">Click to expand →</p>
+                    <Link
+                      href={`/case-studies/${cs.slug}`}
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-xs text-slate-500 hover:text-purple-vivid transition-colors"
+                    >
+                      Full story →
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
