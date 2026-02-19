@@ -10,7 +10,7 @@ export default function SectionHeading({
   description,
 }: SectionHeadingProps) {
   return (
-    <div className="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
+    <div className="text-center max-w-3xl mx-auto mb-10 scroll-reveal">
       <span className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold bg-purple-vivid/10 text-purple-vivid border border-purple-vivid/20 mb-4">
         {label}
       </span>

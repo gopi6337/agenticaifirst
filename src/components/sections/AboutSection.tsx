@@ -47,21 +47,20 @@ export default function AboutSection() {
   const ref = useScrollReveal();
 
   return (
-    <section id="about" ref={ref} className="py-12 md:py-16 relative">
+    <section id="about" ref={ref} className="py-8 md:py-12 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-violet-deep/10 to-slate-950" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           label="About Us"
-          title="Who We Are"
+          title="Agentic AI First"
           description="A team of seasoned technologists with over 25 years of collective experience, now focused on the AI revolution."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-8">
           {/* Left: Story */}
           <div className="scroll-reveal">
             <p className="text-lg text-slate-300 leading-relaxed mb-6">
-              <span className="font-bold text-white">Agentic AI First</span> is
-              built by a team of seasoned technologists with over 25 years of
+              We are built by a team of seasoned technologists with over 25 years of
               collective experience in software development, enterprise solutions,
               and business automation. We&apos;ve solved complex problems across
               industries — and now, we&apos;re channeling that expertise into the

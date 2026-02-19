@@ -30,15 +30,20 @@ export default function WhyChooseUsSection() {
   const ref = useScrollReveal();
 
   return (
-    <section id="why-us" ref={ref} className="py-12 md:py-16 relative">
+    <section id="why-us" ref={ref} className="py-8 md:py-12 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/50 to-slate-950" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Centered label — like other sections */}
+        <div className="text-center mb-8 scroll-reveal">
+          <span className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold bg-purple-vivid/10 text-purple-vivid border border-purple-vivid/20">
+            Why AgenticAI First
+          </span>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: text */}
           <div className="scroll-reveal">
-            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold bg-purple-vivid/10 text-purple-vivid border border-purple-vivid/20 mb-4">
-              Why AgenticAI First
-            </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               The{" "}
               <span className="gradient-text">Unfair Advantage</span>{" "}
