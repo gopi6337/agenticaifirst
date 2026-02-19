@@ -14,12 +14,16 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {/* Brand column */}
           <div className="col-span-2 md:col-span-1">
-            <a href="#" className="flex items-center mb-4">
-              <img
-                src="/aaf_logo.png"
-                alt="Agentic AI First"
-                className="h-14 w-auto object-contain"
-              />
+            <a href="#" className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-vivid to-blue-electric flex items-center justify-center">
+                <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+                </svg>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-lg font-bold text-white">Agentic AI First</span>
+                <span className="text-[10px] text-slate-400 tracking-widest uppercase">AI as a Service</span>
+              </div>
             </a>
             <p className="text-sm text-slate-400 mb-6">
               Building autonomous AI solutions that think, plan, and execute for your business.
