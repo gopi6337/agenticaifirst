@@ -11,7 +11,7 @@ import BlogSection from "@/components/sections/BlogSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import FAQSection from "@/components/sections/FAQSection";
 import CTASection from "@/components/sections/CTASection";
-import { SERVICES } from "@/lib/constants";
+import { SERVICES, INDUSTRIES } from "@/lib/constants";
 
 const servicesJsonLd = {
   "@context": "https://schema.org",
@@ -32,12 +32,38 @@ const servicesJsonLd = {
   })),
 };
 
+const industriesJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Industries We Serve",
+  itemListElement: INDUSTRIES.map((industry, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
+      "@type": "Service",
+      name: industry.title,
+      description: industry.description,
+      serviceType: "AI Solutions",
+      areaServed: industry.title,
+      provider: {
+        "@type": "Organization",
+        name: "AgenticAI First",
+        url: "https://agenticaifirst.com",
+      },
+    },
+  })),
+};
+
 export default function Home() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(industriesJsonLd) }}
       />
       <Navbar />
       <main>
