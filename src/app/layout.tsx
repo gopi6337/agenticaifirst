@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   ],
   metadataBase: new URL("https://agenticaifirst.com"),
   alternates: {
-    canonical: "https://agenticaifirst.com",
+    canonical: "https://agenticaifirst.com/",
   },
   robots: {
     index: true,
@@ -73,7 +73,6 @@ const organizationJsonLd = {
     contactType: "sales",
     url: "https://agenticaifirst.com/#contact",
   },
-  sameAs: [],
 };
 
 const websiteJsonLd = {
@@ -83,11 +82,6 @@ const websiteJsonLd = {
   url: "https://agenticaifirst.com",
   description:
     "Everything AI, Under One Roof. End-to-end agentic AI solutions for businesses.",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: "https://agenticaifirst.com/?q={search_term_string}",
-    "query-input": "required name=search_term_string",
-  },
 };
 
 export default function RootLayout({

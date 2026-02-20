@@ -23,11 +23,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       type: "article",
       url: `https://agenticaifirst.com/case-studies/${cs.slug}/`,
       siteName: "AgenticAI First",
+      images: [
+        {
+          url: "https://agenticaifirst.com/aaf_logo.png",
+          width: 512,
+          height: 512,
+          alt: `${cs.title} - AI Case Study`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: `${cs.title} - AI Case Study`,
       description: cs.overview,
+      images: ["https://agenticaifirst.com/aaf_logo.png"],
     },
   };
 }
@@ -42,6 +51,8 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
     "@type": "Article",
     headline: `${cs.title} - AI Transformation Case Study`,
     description: cs.overview,
+    datePublished: "2026-02-11T00:00:00.000Z",
+    image: "https://agenticaifirst.com/aaf_logo.png",
     author: {
       "@type": "Organization",
       name: "AgenticAI First",

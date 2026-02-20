@@ -25,11 +25,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       siteName: "AgenticAI First",
       publishedTime: new Date(post.date).toISOString(),
       authors: ["AgenticAI First"],
+      images: [
+        {
+          url: "https://agenticaifirst.com/aaf_logo.png",
+          width: 512,
+          height: 512,
+          alt: post.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
+      images: ["https://agenticaifirst.com/aaf_logo.png"],
     },
   };
 }

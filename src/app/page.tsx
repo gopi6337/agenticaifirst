@@ -16,6 +16,7 @@ import { SERVICES, INDUSTRIES } from "@/lib/constants";
 const servicesJsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
+  name: "Our Services",
   itemListElement: SERVICES.map((service, index) => ({
     "@type": "ListItem",
     position: index + 1,
