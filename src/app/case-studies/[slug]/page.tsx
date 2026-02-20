@@ -1,18 +1,34 @@
 import { CASE_STUDIES } from "@/lib/casestudies";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import type { Metadata } from "next";
 
 export function generateStaticParams() {
   return CASE_STUDIES.map((cs) => ({ slug: cs.slug }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const cs = CASE_STUDIES.find((c) => c.slug === slug);
   if (!cs) return { title: "Not Found" };
   return {
     title: `${cs.title} Case Study | Agentic AI First`,
     description: `How AI agents transformed ${cs.industry}: ${cs.results[0]}`,
+    alternates: {
+      canonical: `https://agenticaifirst.com/case-studies/${cs.slug}/`,
+    },
+    openGraph: {
+      title: `${cs.title} - AI Case Study`,
+      description: cs.overview,
+      type: "article",
+      url: `https://agenticaifirst.com/case-studies/${cs.slug}/`,
+      siteName: "AgenticAI First",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${cs.title} - AI Case Study`,
+      description: cs.overview,
+    },
   };
 }
 
@@ -21,8 +37,39 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
   const cs = CASE_STUDIES.find((c) => c.slug === slug);
   if (!cs) notFound();
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: `${cs.title} - AI Transformation Case Study`,
+    description: cs.overview,
+    author: {
+      "@type": "Organization",
+      name: "AgenticAI First",
+      url: "https://agenticaifirst.com",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "AgenticAI First",
+      url: "https://agenticaifirst.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://agenticaifirst.com/aaf_logo.png",
+      },
+    },
+    url: `https://agenticaifirst.com/case-studies/${cs.slug}/`,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://agenticaifirst.com/case-studies/${cs.slug}/`,
+    },
+    articleSection: cs.industry,
+  };
+
   return (
     <div className="min-h-screen bg-slate-950 text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-24 md:py-32">
         <Link
           href="/#case-studies"
