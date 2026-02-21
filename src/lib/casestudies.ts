@@ -9,6 +9,7 @@ export type CaseStudy = {
   overview: string;
   solution: string;
   impact: string;
+  datePublished: string;
 };
 
 export const CASE_STUDIES: CaseStudy[] = [
@@ -23,6 +24,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     overview: "A mid-size IT services company managing 200+ client applications struggled with slow deployment cycles and reactive incident management. Their team spent more time firefighting than building.",
     solution: "We deployed four AI agents working in concert: a Code Review Agent that catches bugs and security issues before merge, a Security Scanner running continuous vulnerability assessments, a DevOps Automation agent handling CI/CD pipelines end-to-end, and an Incident Management agent that detects, diagnoses, and resolves infrastructure issues autonomously.",
     impact: "The transformation was immediate. Deployments that took 2-3 days now complete in hours. The security posture improved dramatically with vulnerabilities caught at code-commit time rather than in production. The team shifted from reactive firefighting to proactive innovation, boosting overall developer satisfaction and retention.",
+    datePublished: "2026-02-09T00:00:00.000Z",
   },
   {
     slug: "healthcare-education-ai",
@@ -35,6 +37,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     overview: "A healthcare-education group running clinics and training programs faced burnout among clinicians drowning in paperwork, while students waited days for answers to course queries.",
     solution: "We built a Clinical Documentation Agent that listens to patient consultations and auto-generates structured notes, a Patient Care Monitor tracking vitals and flagging anomalies in real-time, a Diagnosis Support agent providing evidence-based recommendations, and an AI Tutor offering 24/7 personalized learning assistance to students.",
     impact: "Clinicians reclaimed 3+ hours daily for patient care. Medical errors dropped 30% through real-time monitoring alerts. Students received instant, accurate responses — improving exam scores by 28% and reducing dropout rates significantly.",
+    datePublished: "2026-02-10T00:00:00.000Z",
   },
   {
     slug: "telecom-network-optimization",
@@ -47,6 +50,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     overview: "A regional telecom provider serving 500K+ subscribers was hemorrhaging customers due to frequent outages, slow service activation, and overwhelmed call centers handling 25,000 complaints monthly.",
     solution: "We deployed a Network Monitor agent providing real-time topology awareness, an Auto-Healing Agent that detects and resolves network issues before customers notice, a Customer Service Agent handling tier-1 support autonomously, and a Predictive Maintenance agent scheduling proactive equipment servicing based on failure patterns.",
     impact: "Downtime dropped 80%. Service activation went from 72 hours to just 4 hours. Customer complaints fell by 55%, and the predictive maintenance approach saved 40% on maintenance costs by preventing failures rather than reacting to them.",
+    datePublished: "2026-02-11T00:00:00.000Z",
   },
   {
     slug: "ecommerce-retail-personalization",
@@ -59,6 +63,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     overview: "An online retailer with 50K+ SKUs was losing millions to cart abandonment, stockouts, and one-size-fits-all marketing campaigns that customers ignored.",
     solution: "We implemented a Shopping Assistant that guides customers through product selection with personalized recommendations, an Inventory Manager predicting demand and auto-reordering stock, a Customer Support Agent resolving order issues instantly, and a Marketing Personalizer crafting individualized campaigns based on browsing and purchase behavior.",
     impact: "Cart abandonment dropped from 68% to 42%. Stockouts reduced by 75%, recovering previously lost revenue. The personalized marketing approach lifted conversion rates from 2% to 12%, driving a 32% overall revenue increase within the first quarter.",
+    datePublished: "2026-02-12T00:00:00.000Z",
   },
   {
     slug: "finance-accounting-automation",
@@ -71,6 +76,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     overview: "A financial services firm with $200M+ in annual transactions was drowning in manual reconciliation, slow invoice processing, and a fraud detection system that missed 1 in 5 fraudulent transactions.",
     solution: "We deployed a Reconciliation Agent that matches and validates transactions across multiple systems automatically, an Invoice Processor extracting data from any format and routing for approval, a Fraud Detection Agent using behavioral analysis to catch sophisticated fraud patterns, and a Tax Compliance agent ensuring real-time regulatory adherence.",
     impact: "Month-end close shrank from 10 days to 2. Invoice processing backlogs disappeared with 85% faster throughput. Fraud detection accuracy jumped to 95%, preventing significant financial losses. The finance team redirected 60% of their time from manual tasks to strategic analysis.",
+    datePublished: "2026-02-13T00:00:00.000Z",
   },
   {
     slug: "customer-support-transformation",
@@ -83,6 +89,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     overview: "A SaaS company with 10,000+ customers had a support crisis: 45-minute response times, a dismal 30% CSAT score, and human agents spending 80% of their time on repetitive password resets and FAQ queries.",
     solution: "We built a First Response Agent providing instant acknowledgment and initial triage, a Tier-1 Resolution agent handling common issues end-to-end, an Intelligent Routing system matching complex tickets to the right specialist, and a Sentiment Analysis agent monitoring customer emotion to prioritize and escalate appropriately.",
     impact: "Response times dropped from 45 minutes to 30 seconds. CSAT scores soared from 30% to 87%. With 78% of tickets auto-resolved, human agents focused on complex, high-value interactions. Overall support costs dropped 65% while quality improved dramatically.",
+    datePublished: "2026-02-14T00:00:00.000Z",
   },
   {
     slug: "hr-recruitment-automation",
@@ -95,6 +102,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     overview: "A growing tech company hiring 50+ roles per quarter was losing top candidates to slow processes. Recruiters spent 40 hours screening 500 resumes per role, and 40% of candidates ghosted due to poor communication.",
     solution: "We deployed a Resume Screener that evaluates candidates against role requirements in seconds, an Interview Scheduler coordinating availability across panels automatically, a Candidate Engagement agent maintaining personalized communication throughout the pipeline, and an Onboarding Agent streamlining day-one setup for new hires.",
     impact: "Resume screening went from 40 hours to 4 hours per role. Time-to-hire dropped from 45 days to 18. Candidate ghosting fell from 40% to 14% thanks to consistent engagement. Each recruiter now handles 3x more open roles without burnout.",
+    datePublished: "2026-02-15T00:00:00.000Z",
   },
   {
     slug: "sales-marketing-ai-agents",
@@ -107,5 +115,6 @@ export const CASE_STUDIES: CaseStudy[] = [
     overview: "A B2B company's sales pipeline was leaking: 60% of leads went cold because reps couldn't follow up within 24 hours, email campaigns had a dismal 2% open rate, and reps spent 65% of their time on CRM updates and admin work.",
     solution: "We implemented a Lead Qualifier that scores and prioritizes inbound leads instantly, an Outreach Personalizer crafting individualized emails based on prospect research, a Meeting Scheduler handling back-and-forth availability coordination, and a Campaign Optimizer A/B testing and refining messaging in real-time.",
     impact: "Lead response time dropped from 24 hours to 2 hours. Email open rates jumped from 2% to 18% with personalized messaging. Sales reps closed 3x more deals by focusing on selling instead of admin. Customer acquisition costs dropped 40%.",
+    datePublished: "2026-02-16T00:00:00.000Z",
   },
 ];

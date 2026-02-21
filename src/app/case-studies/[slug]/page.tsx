@@ -51,7 +51,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
     "@type": "Article",
     headline: `${cs.title} - AI Transformation Case Study`,
     description: cs.overview,
-    datePublished: "2026-02-11T00:00:00.000Z",
+    datePublished: cs.datePublished,
     image: "https://agenticaifirst.com/aaf_logo.png",
     author: {
       "@type": "Organization",
