@@ -59,6 +59,11 @@ export const metadata: Metadata = {
     images: ["/aaf_logo.png"],
   },
   manifest: "/manifest.json",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 const organizationJsonLd = {
