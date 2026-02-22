@@ -5,6 +5,8 @@ import Button from "./Button";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -12,10 +14,36 @@ export default function ContactForm() {
     message: "",
   });
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setFormData({ name: "", email: "", company: "", message: "" });
+    setIsLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch("https://formspree.io/f/xbdazazn", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({ name: "", email: "", company: "", message: "" });
+      } else {
+        setError(
+          result?.errors?.[0]?.message || "Something went wrong. Please try again."
+        );
+      }
+    } catch {
+      setError("Failed to send message. Please check your connection and try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   if (submitted) {
@@ -96,8 +124,11 @@ export default function ContactForm() {
           placeholder="Tell us about your project..."
         />
       </div>
-      <Button type="submit" size="lg" className="w-full">
-        Send Message
+      {error && (
+        <p className="text-red-400 text-sm">{error}</p>
+      )}
+      <Button type="submit" size="lg" className="w-full disabled:opacity-50 disabled:cursor-not-allowed" disabled={isLoading}>
+        {isLoading ? "Sending..." : "Send Message"}
       </Button>
     </form>
   );
