@@ -44,9 +44,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/aaf_logo.png",
-        width: 512,
-        height: 512,
+        url: "/new_logo.png",
+        width: 88,
+        height: 88,
         alt: "AgenticAI First - AI Solutions Company",
       },
     ],
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     title: "AgenticAI First - Everything AI, Under One Roof",
     description:
       "Transform your business with autonomous AI agents that think, plan, and execute.",
-    images: ["/aaf_logo.png"],
+    images: ["/new_logo.png"],
   },
   manifest: "/manifest.json",
   icons: {
@@ -71,7 +71,7 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: "AgenticAI First",
   url: "https://agenticaifirst.com",
-  logo: "https://agenticaifirst.com/aaf_logo.png",
+  logo: "https://agenticaifirst.com/new_logo.png",
   description:
     "AgenticAI First delivers cutting-edge agentic AI solutions that automate workflows, enhance decision-making, and drive growth for forward-thinking businesses.",
   contactPoint: {
