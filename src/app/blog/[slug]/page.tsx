@@ -27,9 +27,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       authors: ["AgenticAI First"],
       images: [
         {
-          url: "https://agenticaifirst.com/aaf_logo.png",
-          width: 512,
-          height: 512,
+          url: "https://agenticaifirst.com/new_logo.png",
+          width: 88,
+          height: 88,
           alt: post.title,
         },
       ],
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-      images: ["https://agenticaifirst.com/aaf_logo.png"],
+      images: ["https://agenticaifirst.com/new_logo.png"],
     },
   };
 }
@@ -65,7 +65,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       url: "https://agenticaifirst.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://agenticaifirst.com/aaf_logo.png",
+        url: "https://agenticaifirst.com/new_logo.png",
       },
     },
     url: `https://agenticaifirst.com/blog/${post.slug}/`,

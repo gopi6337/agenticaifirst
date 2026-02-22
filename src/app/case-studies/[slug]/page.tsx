@@ -25,9 +25,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       siteName: "AgenticAI First",
       images: [
         {
-          url: "https://agenticaifirst.com/aaf_logo.png",
-          width: 512,
-          height: 512,
+          url: "https://agenticaifirst.com/new_logo.png",
+          width: 88,
+          height: 88,
           alt: `${cs.title} - AI Case Study`,
         },
       ],
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       card: "summary_large_image",
       title: `${cs.title} - AI Case Study`,
       description: cs.overview,
-      images: ["https://agenticaifirst.com/aaf_logo.png"],
+      images: ["https://agenticaifirst.com/new_logo.png"],
     },
   };
 }
@@ -52,7 +52,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
     headline: `${cs.title} - AI Transformation Case Study`,
     description: cs.overview,
     datePublished: cs.datePublished,
-    image: "https://agenticaifirst.com/aaf_logo.png",
+    image: "https://agenticaifirst.com/new_logo.png",
     author: {
       "@type": "Organization",
       name: "AgenticAI First",
@@ -64,7 +64,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       url: "https://agenticaifirst.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://agenticaifirst.com/aaf_logo.png",
+        url: "https://agenticaifirst.com/new_logo.png",
       },
     },
     url: `https://agenticaifirst.com/case-studies/${cs.slug}/`,
