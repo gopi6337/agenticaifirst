@@ -81,88 +81,225 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 py-24 md:py-32">
-        <Link
-          href="/#case-studies"
-          className="inline-flex items-center text-sm text-slate-400 hover:text-purple-vivid transition-colors mb-8"
-        >
-          ← Back to Case Studies
-        </Link>
 
-        <div className="flex items-center gap-3 mb-6">
-          <span className="text-3xl">{cs.icon}</span>
-          <span className="text-xs font-medium px-3 py-1 rounded-full bg-purple-vivid/10 text-purple-vivid border border-purple-vivid/20">
-            {cs.industry}
-          </span>
-        </div>
+      {/* ── HERO ── */}
+      <div className="bg-gradient-to-b from-slate-900 to-slate-950 border-b border-white/5">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-24 md:py-32">
+          <Link
+            href="/#case-studies"
+            className="inline-flex items-center text-sm text-slate-400 hover:text-purple-400 transition-colors mb-8"
+          >
+            ← Back to Case Studies
+          </Link>
 
-        <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
-          {cs.title}
-        </h1>
-        <p className="text-slate-400 text-lg mb-10">{cs.overview}</p>
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-4xl">{cs.icon}</span>
+            <span className="text-xs font-medium px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">
+              {cs.industry}
+            </span>
+          </div>
 
-        {/* Results Banner */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-          {cs.results.map((r, i) => (
-            <div key={i} className="text-center p-4 rounded-xl bg-green-500/5 border border-green-500/10">
-              <span className="text-green-400 text-sm font-semibold">{r}</span>
-            </div>
-          ))}
-        </div>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            How AI Agents Transformed {cs.title} Operations
+          </h1>
+          <p className="text-slate-300 text-xl leading-relaxed mb-10">{cs.overview}</p>
 
-        {/* Challenges */}
-        <div className="mb-10">
-          <h2 className="text-xl font-bold text-red-400 mb-4">The Challenges</h2>
-          <ul className="space-y-3">
-            {cs.challenges.map((c, i) => (
-              <li key={i} className="flex items-start gap-3 text-slate-300">
-                <span className="text-red-400 mt-1">✕</span>
-                <span>{c}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Solution */}
-        <div className="mb-10">
-          <h2 className="text-xl font-bold text-blue-400 mb-4">Our Solution</h2>
-          <p className="text-slate-300 leading-relaxed mb-6">{cs.solution}</p>
-          <h3 className="text-sm font-semibold text-blue-400 mb-3">AI Agents Deployed</h3>
-          <div className="flex flex-wrap gap-2">
-            {cs.agents.map((a, i) => (
-              <span key={i} className="text-sm px-3 py-1.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
-                {a}
-              </span>
+          {/* Key Results */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {cs.results.map((r, i) => (
+              <div key={i} className="text-center p-5 rounded-2xl bg-green-500/5 border border-green-500/15">
+                <span className="text-green-400 text-sm font-bold">{r}</span>
+              </div>
             ))}
           </div>
         </div>
+      </div>
 
-        {/* Impact */}
-        <div className="mb-12">
-          <h2 className="text-xl font-bold text-green-400 mb-4">The Impact</h2>
-          <p className="text-slate-300 leading-relaxed">{cs.impact}</p>
-        </div>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16 space-y-20">
 
-        {/* CTA */}
-        <div className="p-8 rounded-2xl bg-gradient-to-r from-purple-vivid/10 to-blue-electric/10 border border-purple-vivid/20 text-center">
-          <h3 className="text-xl font-bold text-white mb-3">Ready for Similar Results?</h3>
-          <p className="text-slate-400 mb-6">Let&apos;s discuss how AI agents can transform your {cs.industry.toLowerCase()} operations.</p>
+        {/* ── CLIENT PROFILE ── */}
+        <section>
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-8 h-8 rounded-lg bg-purple-500/15 border border-purple-500/25 flex items-center justify-center text-base">
+              🏢
+            </div>
+            <h2 className="text-2xl font-bold text-white">Client Profile</h2>
+          </div>
+          <div className="p-6 rounded-2xl bg-purple-500/5 border border-purple-500/15">
+            <p className="text-slate-300 leading-relaxed text-lg">{cs.clientProfile}</p>
+          </div>
+        </section>
+
+        {/* ── THE CHALLENGE ── */}
+        <section>
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-8 h-8 rounded-lg bg-red-500/15 border border-red-500/25 flex items-center justify-center text-base">
+              ⚠️
+            </div>
+            <h2 className="text-2xl font-bold text-white">The Challenge</h2>
+          </div>
+          {/* Quick bullets */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+            {cs.challenges.map((c, i) => (
+              <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-red-500/5 border border-red-500/15">
+                <span className="text-red-400 mt-0.5 shrink-0">✕</span>
+                <span className="text-slate-300 text-sm">{c}</span>
+              </div>
+            ))}
+          </div>
+          {/* Detailed paragraphs */}
+          <div className="space-y-4">
+            {cs.challengeDetail.split("\n\n").map((para, i) => (
+              <p key={i} className="text-slate-300 leading-relaxed">{para}</p>
+            ))}
+          </div>
+        </section>
+
+        {/* ── BEFORE AI ── */}
+        <section>
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-8 h-8 rounded-lg bg-orange-500/15 border border-orange-500/25 flex items-center justify-center text-base">
+              🕐
+            </div>
+            <h2 className="text-2xl font-bold text-white">Before AI: The Daily Reality</h2>
+          </div>
+          <div className="p-6 rounded-2xl bg-orange-500/5 border border-orange-500/15 space-y-4">
+            {cs.beforeAI.split("\n\n").map((para, i) => (
+              <p key={i} className="text-slate-300 leading-relaxed">{para}</p>
+            ))}
+          </div>
+        </section>
+
+        {/* ── OUR APPROACH ── */}
+        <section>
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-8 h-8 rounded-lg bg-blue-500/15 border border-blue-500/25 flex items-center justify-center text-base">
+              🔍
+            </div>
+            <h2 className="text-2xl font-bold text-white">Our Approach</h2>
+          </div>
+          <div className="space-y-4">
+            {cs.approach.split("\n\n").map((para, i) => (
+              <p key={i} className="text-slate-300 leading-relaxed">{para}</p>
+            ))}
+          </div>
+        </section>
+
+        {/* ── AI AGENTS IN DETAIL ── */}
+        <section>
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-500/25 flex items-center justify-center text-base">
+              🤖
+            </div>
+            <h2 className="text-2xl font-bold text-white">The AI Agents Deployed</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {cs.agentDetails.map((agent, i) => (
+              <div key={i} className="p-6 rounded-2xl bg-blue-500/5 border border-blue-500/15 flex flex-col gap-3">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-blue-400 shrink-0" />
+                  <h3 className="text-blue-300 font-semibold text-base">{agent.name}</h3>
+                </div>
+                <p className="text-slate-400 text-sm leading-relaxed">{agent.role}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── TECHNICAL IMPLEMENTATION ── */}
+        <section>
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-8 h-8 rounded-lg bg-slate-600/40 border border-slate-500/30 flex items-center justify-center text-base">
+              ⚙️
+            </div>
+            <h2 className="text-2xl font-bold text-white">Technical Implementation</h2>
+          </div>
+          <div className="p-6 rounded-2xl bg-slate-800/40 border border-slate-700/50 space-y-4">
+            {cs.technicalImplementation.split("\n\n").map((para, i) => (
+              <p key={i} className="text-slate-300 leading-relaxed">{para}</p>
+            ))}
+          </div>
+        </section>
+
+        {/* ── RESULTS & IMPACT ── */}
+        <section>
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-8 h-8 rounded-lg bg-green-500/15 border border-green-500/25 flex items-center justify-center text-base">
+              📊
+            </div>
+            <h2 className="text-2xl font-bold text-white">Results &amp; Impact</h2>
+          </div>
+          {/* Metrics */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+            {cs.results.map((r, i) => (
+              <div key={i} className="text-center p-4 rounded-xl bg-green-500/8 border border-green-500/20">
+                <span className="text-green-400 text-sm font-bold">{r}</span>
+              </div>
+            ))}
+          </div>
+          {/* Detailed narrative */}
+          <div className="space-y-4">
+            {cs.impactDetail.split("\n\n").map((para, i) => (
+              <p key={i} className="text-slate-300 leading-relaxed">{para}</p>
+            ))}
+          </div>
+        </section>
+
+        {/* ── KEY TAKEAWAYS ── */}
+        <section>
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-8 h-8 rounded-lg bg-yellow-500/15 border border-yellow-500/25 flex items-center justify-center text-base">
+              💡
+            </div>
+            <h2 className="text-2xl font-bold text-white">Key Takeaways</h2>
+          </div>
+          <ul className="space-y-4">
+            {cs.keyTakeaways.map((t, i) => (
+              <li key={i} className="flex items-start gap-4 p-4 rounded-xl bg-yellow-500/5 border border-yellow-500/15">
+                <span className="text-yellow-400 font-bold text-sm shrink-0 mt-0.5">{i + 1}.</span>
+                <span className="text-slate-300 leading-relaxed text-sm">{t}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* ── WHAT'S NEXT ── */}
+        <section>
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-8 h-8 rounded-lg bg-purple-500/15 border border-purple-500/25 flex items-center justify-center text-base">
+              🚀
+            </div>
+            <h2 className="text-2xl font-bold text-white">What&apos;s Next</h2>
+          </div>
+          <div className="p-6 rounded-2xl bg-purple-500/5 border border-purple-500/15">
+            <p className="text-slate-300 leading-relaxed text-lg">{cs.nextSteps}</p>
+          </div>
+        </section>
+
+        {/* ── CTA ── */}
+        <div className="p-10 rounded-3xl bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 text-center">
+          <h3 className="text-2xl font-bold text-white mb-3">Ready for Similar Results?</h3>
+          <p className="text-slate-400 mb-8 text-lg">
+            Let&apos;s discuss how AI agents can transform your {cs.industry.toLowerCase()} operations.
+          </p>
           <Link
             href="/#contact"
-            className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-purple-vivid to-blue-electric text-white font-medium hover:opacity-90 transition-opacity"
+            className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold hover:opacity-90 transition-opacity text-base"
           >
             Get Started →
           </Link>
         </div>
 
-        <div className="mt-10 pt-8 border-t border-white/10">
+        {/* ── BACK LINK ── */}
+        <div className="pt-4 border-t border-white/10">
           <Link
             href="/#case-studies"
-            className="inline-flex items-center text-purple-vivid hover:text-purple-400 transition-colors font-medium"
+            className="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors font-medium"
           >
             ← Back to all case studies
           </Link>
         </div>
+
       </div>
     </div>
   );
