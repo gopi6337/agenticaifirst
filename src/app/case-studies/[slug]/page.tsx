@@ -25,9 +25,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       siteName: "AgenticAI First",
       images: [
         {
-          url: "https://agenticaifirst.com/new_logo.png",
-          width: 88,
-          height: 88,
+          url: "https://agenticaifirst.com/og-image.png",
+          width: 1200,
+          height: 630,
           alt: `${cs.title} - AI Case Study`,
         },
       ],
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       card: "summary_large_image",
       title: `${cs.title} - AI Case Study`,
       description: cs.overview,
-      images: ["https://agenticaifirst.com/new_logo.png"],
+      images: ["https://agenticaifirst.com/og-image.png"],
     },
   };
 }

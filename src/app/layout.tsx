@@ -44,9 +44,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/new_logo.png",
-        width: 88,
-        height: 88,
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
         alt: "AgenticAI First - AI Solutions Company",
       },
     ],
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     title: "AgenticAI First - Everything AI, Under One Roof",
     description:
       "Transform your business with autonomous AI agents that think, plan, and execute.",
-    images: ["/new_logo.png"],
+    images: ["/og-image.png"],
   },
   manifest: "/manifest.json",
   icons: {

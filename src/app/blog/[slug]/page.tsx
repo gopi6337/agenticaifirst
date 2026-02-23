@@ -27,9 +27,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       authors: ["AgenticAI First"],
       images: [
         {
-          url: "https://agenticaifirst.com/new_logo.png",
-          width: 88,
-          height: 88,
+          url: "https://agenticaifirst.com/og-image.png",
+          width: 1200,
+          height: 630,
           alt: post.title,
         },
       ],
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-      images: ["https://agenticaifirst.com/new_logo.png"],
+      images: ["https://agenticaifirst.com/og-image.png"],
     },
   };
 }
