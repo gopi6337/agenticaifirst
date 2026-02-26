@@ -1,7 +1,18 @@
+import React from "react";
 import { BLOG_POSTS } from "@/lib/blog";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
+
+function renderInlineBold(text: string): React.ReactNode {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  if (parts.length === 1) return text;
+  return parts.map((part, i) =>
+    part.startsWith('**') && part.endsWith('**')
+      ? <strong key={i}>{part.slice(2, -2)}</strong>
+      : part
+  );
+}
 
 export function generateStaticParams() {
   return BLOG_POSTS.map((post) => ({ slug: post.slug }));
@@ -54,6 +65,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     headline: post.title,
     description: post.excerpt,
     datePublished: new Date(post.date).toISOString(),
+    dateModified: new Date(post.date).toISOString(),
     author: {
       "@type": "Organization",
       name: "AgenticAI First",
@@ -112,10 +124,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             if (trimmed.startsWith('**') && trimmed.endsWith('**'))
               return <p key={i}><strong>{trimmed.slice(2, -2)}</strong></p>;
             if (trimmed.startsWith('- '))
-              return <p key={i} className="pl-4 text-slate-300">• {trimmed.slice(2)}</p>;
+              return <p key={i} className="pl-4 text-slate-300">• {renderInlineBold(trimmed.slice(2))}</p>;
             if (trimmed.startsWith('❌') || trimmed.startsWith('✅'))
               return <p key={i} className="pl-4 text-slate-300">{trimmed}</p>;
-            return <p key={i}>{trimmed}</p>;
+            return <p key={i}>{renderInlineBold(trimmed)}</p>;
           })}
         </article>
 

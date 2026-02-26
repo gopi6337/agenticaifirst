@@ -27,7 +27,7 @@ export default function BlogSection() {
           {BLOG_POSTS.map((post) => (
             <Link
               key={post.slug}
-              href={`/blog/${post.slug}`}
+              href={`/blog/${post.slug}/`}
               className="group relative flex flex-col p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:border-purple-vivid/30 hover:bg-white/[0.06] transition-all duration-300 scroll-reveal"
             >
               <div className="flex items-center gap-3 mb-4">

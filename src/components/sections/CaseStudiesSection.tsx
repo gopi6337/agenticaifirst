@@ -79,7 +79,7 @@ export default function CaseStudiesSection() {
                   <div className="flex items-center justify-between mt-2">
                     <p className="text-purple-vivid text-xs">Click to expand →</p>
                     <Link
-                      href={`/case-studies/${cs.slug}`}
+                      href={`/case-studies/${cs.slug}/`}
                       onClick={(e) => e.stopPropagation()}
                       className="text-xs text-slate-500 hover:text-purple-vivid transition-colors"
                     >
