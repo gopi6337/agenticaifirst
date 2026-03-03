@@ -3,6 +3,8 @@ import { BLOG_POSTS } from "@/lib/blog";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 function renderInlineBold(text: string): React.ReactNode {
   const parts = text.split(/(\*\*[^*]+\*\*)/g);
@@ -38,7 +40,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       authors: ["AgenticAI First"],
       images: [
         {
-          url: "https://agenticaifirst.com/og-image.png",
+          url: `https://agenticaifirst.com/og/blog-${post.slug}.png`,
           width: 1200,
           height: 630,
           alt: post.title,
@@ -49,7 +51,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-      images: ["https://agenticaifirst.com/og-image.png"],
+      images: [`https://agenticaifirst.com/og/blog-${post.slug}.png`],
     },
   };
 }
@@ -94,6 +96,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }}
       />
+      <Navbar />
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-24 md:py-32">
         <Link
           href="/#blog"
@@ -140,6 +143,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </Link>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

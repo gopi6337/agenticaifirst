@@ -2,6 +2,8 @@ import { CASE_STUDIES } from "@/lib/casestudies";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 export function generateStaticParams() {
   return CASE_STUDIES.map((cs) => ({ slug: cs.slug }));
@@ -25,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       siteName: "AgenticAI First",
       images: [
         {
-          url: "https://agenticaifirst.com/og-image.png",
+          url: `https://agenticaifirst.com/og/cs-${cs.slug}.png`,
           width: 1200,
           height: 630,
           alt: `${cs.title} - AI Case Study`,
@@ -36,7 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       card: "summary_large_image",
       title: `${cs.title} - AI Case Study`,
       description: cs.overview,
-      images: ["https://agenticaifirst.com/og-image.png"],
+      images: [`https://agenticaifirst.com/og/cs-${cs.slug}.png`],
     },
   };
 }
@@ -53,7 +55,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
     description: cs.overview,
     datePublished: cs.datePublished,
     dateModified: cs.datePublished,
-    image: "https://agenticaifirst.com/og-image.png",
+    image: `https://agenticaifirst.com/og/cs-${cs.slug}.png`,
     author: {
       "@type": "Organization",
       name: "AgenticAI First",
@@ -82,6 +84,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
+      <Navbar />
 
       {/* ── HERO ── */}
       <div className="bg-gradient-to-b from-slate-900 to-slate-950 border-b border-white/5">
@@ -302,6 +305,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         </div>
 
       </div>
+      <Footer />
     </div>
   );
 }

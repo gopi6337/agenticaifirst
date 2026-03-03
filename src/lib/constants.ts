@@ -1,11 +1,11 @@
 export const NAV_LINKS = [
-  { label: "Services", href: "#services" },
-  { label: "Industries", href: "#industries" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Why Us", href: "#why-us" },
-  { label: "About", href: "#about" },
-  { label: "Blog", href: "#blog" },
-  { label: "Contact", href: "#contact" },
+  { label: "Services", href: "/#services" },
+  { label: "Industries", href: "/#industries" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Why Us", href: "/#why-us" },
+  { label: "About", href: "/#about" },
+  { label: "Blog", href: "/#blog" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export const SERVICES = [
@@ -214,27 +214,27 @@ export const TESTIMONIALS = [
 
 export const FOOTER_LINKS = {
   product: [
-    { label: "Features", href: "#services" },
-    { label: "How It Works", href: "#how-it-works" },
-    { label: "Pricing", href: "#contact" },
-    { label: "Case Studies", href: "#testimonials" },
+    { label: "Features", href: "/#services" },
+    { label: "How It Works", href: "/#how-it-works" },
+    { label: "Pricing", href: "/#contact" },
+    { label: "Case Studies", href: "/#case-studies" },
   ],
   company: [
-    { label: "About Us", href: "#why-us" },
+    { label: "About Us", href: "/#why-us" },
     { label: "Careers", href: "#" },
-    { label: "Blog", href: "#blog" },
+    { label: "Blog", href: "/#blog" },
     { label: "Press", href: "#" },
   ],
   resources: [
-    { label: "Documentation", href: "#" },
-    { label: "API Reference", href: "#" },
-    { label: "Community", href: "#" },
-    { label: "Support", href: "#contact" },
+    { label: "Documentation", href: "/resources/docs/" },
+    { label: "Integrations", href: "/resources/integrations/" },
+    { label: "Community", href: "/resources/community/" },
+    { label: "Support", href: "/#contact" },
   ],
   legal: [
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
-    { label: "Cookie Policy", href: "#" },
-    { label: "Security", href: "#" },
+    { label: "Privacy Policy", href: "/legal/privacy/" },
+    { label: "Terms of Service", href: "/legal/terms/" },
+    { label: "Cookie Policy", href: "/legal/cookies/" },
+    { label: "Security", href: "/legal/security/" },
   ],
 };

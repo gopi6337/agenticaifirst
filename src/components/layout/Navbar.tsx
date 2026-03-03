@@ -25,7 +25,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-0 group">
+          <a href="/" className="flex items-center gap-0 group">
             <img
               src="/new_logo.png"
               alt="Agentic AI First Logo"
@@ -52,7 +52,7 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-            <Button href="#contact" size="sm">
+            <Button href="/#contact" size="sm">
               Get Started
             </Button>
           </div>
@@ -90,7 +90,7 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-            <Button href="#contact" size="sm" className="mt-2">
+            <Button href="/#contact" size="sm" className="mt-2">
               Get Started
             </Button>
           </div>

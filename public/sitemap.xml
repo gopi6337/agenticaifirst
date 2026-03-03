@@ -2,74 +2,116 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://agenticaifirst.com/</loc>
-    <lastmod>2026-02-26</lastmod>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://agenticaifirst.com/blog/what-are-ai-agents/</loc>
-    <lastmod>2026-02-26</lastmod>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://agenticaifirst.com/blog/ai-transforming-customer-support/</loc>
-    <lastmod>2026-02-26</lastmod>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://agenticaifirst.com/blog/choosing-right-ai-partner/</loc>
-    <lastmod>2026-02-26</lastmod>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://agenticaifirst.com/case-studies/it-services-devops-automation/</loc>
-    <lastmod>2026-02-26</lastmod>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://agenticaifirst.com/case-studies/healthcare-education-ai/</loc>
-    <lastmod>2026-02-26</lastmod>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://agenticaifirst.com/case-studies/telecom-network-optimization/</loc>
-    <lastmod>2026-02-26</lastmod>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://agenticaifirst.com/case-studies/ecommerce-retail-personalization/</loc>
-    <lastmod>2026-02-26</lastmod>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://agenticaifirst.com/case-studies/finance-accounting-automation/</loc>
-    <lastmod>2026-02-26</lastmod>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://agenticaifirst.com/case-studies/customer-support-transformation/</loc>
-    <lastmod>2026-02-26</lastmod>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://agenticaifirst.com/case-studies/hr-recruitment-automation/</loc>
-    <lastmod>2026-02-26</lastmod>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://agenticaifirst.com/case-studies/sales-marketing-ai-agents/</loc>
-    <lastmod>2026-02-26</lastmod>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://agenticaifirst.com/resources/docs/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://agenticaifirst.com/resources/integrations/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://agenticaifirst.com/resources/community/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://agenticaifirst.com/legal/privacy/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://agenticaifirst.com/legal/terms/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://agenticaifirst.com/legal/cookies/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://agenticaifirst.com/legal/security/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
