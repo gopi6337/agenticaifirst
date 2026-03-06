@@ -48,6 +48,16 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
   const cs = CASE_STUDIES.find((c) => c.slug === slug);
   if (!cs) notFound();
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://agenticaifirst.com/" },
+      { "@type": "ListItem", position: 2, name: "Case Studies", item: "https://agenticaifirst.com/#case-studies" },
+      { "@type": "ListItem", position: 3, name: cs.title, item: `https://agenticaifirst.com/case-studies/${cs.slug}/` },
+    ],
+  };
+
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -80,6 +90,10 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
