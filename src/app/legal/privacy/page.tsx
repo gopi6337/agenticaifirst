@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy | AgenticAI First",
   description:
     "Learn how AgenticAI First collects, uses, and protects your personal data. We are committed to your privacy and data security.",
+  robots: { index: false, follow: false },
   alternates: {
     canonical: "https://agenticaifirst.com/legal/privacy/",
   },

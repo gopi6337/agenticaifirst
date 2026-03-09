@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Security | AgenticAI First",
   description:
     "Learn about the security practices at AgenticAI First — how we protect our website, your data, and how to report a vulnerability.",
+  robots: { index: false, follow: false },
   alternates: {
     canonical: "https://agenticaifirst.com/legal/security/",
   },

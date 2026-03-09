@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Terms of Service | AgenticAI First",
   description:
     "Read the Terms of Service for AgenticAI First. Understand your rights and obligations when using our AI consulting and automation services.",
+  robots: { index: false, follow: false },
   alternates: {
     canonical: "https://agenticaifirst.com/legal/terms/",
   },

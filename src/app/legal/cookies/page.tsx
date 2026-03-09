@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Cookie Policy | AgenticAI First",
   description:
     "Learn about the cookies used on the AgenticAI First website, why we use them, and how you can control them.",
+  robots: { index: false, follow: false },
   alternates: {
     canonical: "https://agenticaifirst.com/legal/cookies/",
   },
