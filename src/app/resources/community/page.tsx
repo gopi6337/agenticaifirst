@@ -147,10 +147,50 @@ export default function CommunityPage() {
           </div>
         </section>
 
-        {/* ── SOCIAL LINKS — PENDING: re-enable once real URLs are ready ── */}
-        {/* <section>
-          ...
-        </section> */}
+        {/* ── TOPICS WE COVER ── */}
+        <section>
+          <h2 className="text-2xl font-bold text-white text-center mb-8">Topics We Cover</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              { icon: "🤖", title: "Agentic AI", desc: "How autonomous AI agents work, plan, and execute multi-step tasks without human intervention." },
+              { icon: "⚙️", title: "Workflow Automation", desc: "Practical guides for automating repetitive business processes across sales, HR, finance, and operations." },
+              { icon: "🔗", title: "AI Integrations", desc: "Connecting AI agents to CRMs, ERPs, cloud platforms, and communication tools your team already uses." },
+              { icon: "📊", title: "ROI & Metrics", desc: "How to measure AI impact — cost savings, time recovered, error reduction, and revenue generated." },
+              { icon: "🏥", title: "Industry Use Cases", desc: "Real deployment stories from healthcare, finance, retail, IT services, HR, and telecom sectors." },
+              { icon: "🛡️", title: "AI Security & Ethics", desc: "Responsible AI deployment — data privacy, prompt injection risks, compliance, and governance frameworks." },
+            ].map((topic) => (
+              <div key={topic.title} className="p-5 rounded-xl bg-white/[0.02] border border-white/[0.08]">
+                <span className="text-2xl mb-3 block">{topic.icon}</span>
+                <h3 className="text-white font-semibold mb-2">{topic.title}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">{topic.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── FAQ ── */}
+        <section>
+          <h2 className="text-2xl font-bold text-white text-center mb-8">Frequently Asked Questions</h2>
+          <div className="space-y-4">
+            {[
+              { q: "How often is the newsletter sent?", a: "Once a month. No more, no less. We focus on quality over frequency — each issue includes curated AI agent news, one deep-dive implementation guide, and a real business case study." },
+              { q: "Is the newsletter free?", a: "Yes, completely free. No paid tiers, no upsells. We share knowledge openly because an informed market is better for everyone building with AI." },
+              { q: "What topics does the newsletter cover?", a: "Agentic AI frameworks, workflow automation strategies, AI tool comparisons, case studies from real deployments, and practical tips for non-technical business leaders evaluating AI investments." },
+              { q: "Can I unsubscribe any time?", a: "Absolutely. Every email includes a one-click unsubscribe link. We use Formspree for delivery and your email is never shared with third parties." },
+              { q: "Do you share subscriber data?", a: "No. Your email is used only to send the newsletter. We do not sell, rent, or share subscriber information. See our Privacy Policy for full details." },
+            ].map((item) => (
+              <details key={item.q} className="group rounded-xl border border-white/[0.08] bg-white/[0.02] overflow-hidden">
+                <summary className="flex items-center justify-between px-6 py-4 cursor-pointer list-none">
+                  <h3 className="text-white font-medium text-sm pr-4">{item.q}</h3>
+                  <span className="text-purple-400 text-xl flex-shrink-0 transition-transform duration-200 group-open:rotate-45">+</span>
+                </summary>
+                <div className="px-6 pb-5">
+                  <p className="text-slate-400 text-sm leading-relaxed">{item.a}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
 
         {/* ── CTA ── */}
         <div className="p-10 rounded-3xl bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 text-center">
