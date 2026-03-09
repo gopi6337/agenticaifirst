@@ -4,7 +4,7 @@ export const NAV_LINKS = [
   { label: "How It Works", href: "/#how-it-works" },
   { label: "Why Us", href: "/#why-us" },
   { label: "About", href: "/#about" },
-  { label: "Blog", href: "/#blog" },
+  { label: "Blog", href: "/blog/" },
   { label: "Contact", href: "/#contact" },
 ];
 
@@ -217,12 +217,12 @@ export const FOOTER_LINKS = {
     { label: "Features", href: "/#services" },
     { label: "How It Works", href: "/#how-it-works" },
     { label: "Pricing", href: "/#contact" },
-    { label: "Case Studies", href: "/#case-studies" },
+    { label: "Case Studies", href: "/case-studies/" },
   ],
   company: [
     { label: "About Us", href: "/#why-us" },
     { label: "Careers", href: "#" },
-    { label: "Blog", href: "/#blog" },
+    { label: "Blog", href: "/blog/" },
     { label: "Press", href: "#" },
   ],
   resources: [
