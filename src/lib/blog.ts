@@ -121,6 +121,139 @@ The future of customer support isn't more agents — it's smarter agents.
     `,
   },
   {
+    slug: "claude-code-legacy-hospital-system-migration",
+    title: "How Claude Code Migrated a 15-Year-Old Hospital Management System to a Modern Stack",
+    excerpt:
+      "A legacy Java monolith with no documentation, an Oracle database nobody fully understood, and a team that inherited code written by people who left years ago. Here is how Claude Code made the migration possible.",
+    date: "Mar 9, 2026",
+    readTime: "8 min read",
+    category: "Case Study",
+    content: `
+## The System Nobody Wanted to Touch
+
+Every hospital IT director knows the feeling. There is a system running somewhere in the organisation that is mission-critical, completely undocumented, and built by a team that left five years ago. Everyone is afraid to touch it. Nobody fully understands it. And it is holding back everything else.
+
+For one of our healthcare clients, that system was their Hospital Management System — a Java monolith built in 2009, running on an on-premise server, backed by an Oracle database with 340 tables and no schema documentation. It managed patient records, appointment scheduling, bed allocation, billing, pharmacy inventory, and lab results for a network of three clinics and over 1,200 active patients.
+
+It worked. Just barely. And the business had outgrown it years ago.
+
+## The Problems With the Legacy System
+
+The symptoms were familiar to anyone who has worked with ageing healthcare software:
+
+**Performance:** The system took 8–12 seconds to load a patient record during peak hours. Clinic staff had learned to click and wait, click and wait — burning 20–30 minutes of productive time per shift per user.
+
+**Integration impossibility:** Modern healthcare requires integration — with insurance verification APIs, lab equipment, pharmacy systems, and patient-facing apps. The 2009 monolith had no REST APIs. Every integration required custom database-level hacks that introduced new fragility.
+
+**Compliance risk:** Healthcare data regulations have moved significantly since 2009. The legacy system had no audit logging, no role-based access controls beyond basic login, and stored sensitive patient data in ways that would not pass a modern compliance review.
+
+**On-premise fragility:** A single server in a cupboard. No redundancy, no automatic backups, no disaster recovery. A hardware failure meant clinic operations stopped completely.
+
+**The team problem:** The original developers were long gone. The current IT team maintained the system through observation and educated guessing. Nobody had a complete picture of what the system actually did, which database triggers fired when, or why certain business rules existed.
+
+## Why Traditional Migration Approaches Were Failing
+
+The client had already attempted migration twice. Both efforts stalled for the same reason: **nobody could fully understand what the legacy system did before trying to rebuild it.**
+
+The first attempt used a "big bang" approach — freeze the old system, rebuild everything from scratch, cut over. It collapsed after six months when the new system kept missing edge cases that the old system handled silently. A patient scheduling rule embedded in a 900-line stored procedure. A billing calculation hidden in a JSP file that mixed presentation logic with business logic. A pharmacy alert threshold hardcoded into a Java class that nobody had opened in four years.
+
+The second attempt hired consultants to document the legacy system manually before rebuilding. Two consultants spent three months reading code and writing Word documents. The documentation was incomplete, often wrong, and already out of date by the time the rebuild started.
+
+The fundamental problem: **a human team reading legacy code moves too slowly and misses too much.** A 250,000-line Java codebase with no documentation cannot be fully understood by reading it one file at a time.
+
+## Where Claude Code Changed Everything
+
+We proposed a different approach. Before a single line of new code was written, we would use Claude Code to comprehensively analyse, map, and document the entire legacy system — faster and more completely than any human team could.
+
+Here is what that looked like in practice.
+
+## Phase 1 — Codebase Archaeology (Week 1–2)
+
+We gave Claude Code access to the entire legacy repository: 250,000 lines of Java, 340 Oracle database tables, 180 stored procedures, 60 JSP files, and 12 years of uncommitted changes that existed only in the production database.
+
+Claude Code read it all. Then we asked it to produce:
+
+**A dependency map** — which classes called which, which database tables were written to by which procedures, which JSP files contained business logic that should have been in the service layer. In two days, we had a visual map of the entire system that the IT team had never had in 12 years of ownership.
+
+**A business rules inventory** — every conditional, every threshold, every calculation buried in the code. Claude Code identified 847 distinct business rules across the codebase. 340 of them were undocumented. 23 appeared to contradict each other — rules that had been patched over time without removing the original logic.
+
+**A dead code report** — 31% of the codebase was unreachable. Classes, stored procedures, and database tables that were never called by anything in the live system. This alone reduced the migration scope by nearly a third.
+
+**A risk register** — Claude Code flagged every area where the legacy code had patterns that indicated risk: null pointer exceptions suppressed by empty catch blocks, database transactions that were never committed in error paths, hardcoded values that appeared to be clinic-specific configuration.
+
+The IT team reviewed the output and confirmed what they had suspected for years but never had evidence for: the system was significantly more complex than anyone had realised, but also significantly more redundant.
+
+## Phase 2 — Schema Migration (Week 3–4)
+
+340 Oracle tables is a significant migration challenge. Oracle and PostgreSQL are not directly compatible — data types differ, sequences work differently, stored procedure syntax is entirely distinct, and 12 years of Oracle-specific behaviour had crept into query patterns across the application.
+
+We tasked Claude Code with producing the PostgreSQL schema migration. It:
+
+- Analysed every Oracle table, column type, constraint, and index
+- Identified Oracle-specific data types and generated PostgreSQL equivalents with appropriate handling for edge cases
+- Converted 180 stored procedures from Oracle PL/SQL to PostgreSQL functions, flagging the 23 that contained logic too complex for direct translation and required human review
+- Generated a data migration script with row-count validation at every stage
+- Identified the 47 tables that contained data format inconsistencies — dates stored as strings, phone numbers stored in five different formats, NULL values used to mean three different things depending on which part of the system wrote them
+
+The schema migration that the first attempt had estimated at four months of manual work was produced in two weeks. Human engineers then spent two weeks reviewing and validating the output — the right ratio of AI speed to human oversight for a healthcare system.
+
+## Phase 3 — API Extraction and New Stack Development (Week 5–10)
+
+The target architecture: a React frontend, a Node.js REST API layer, PostgreSQL on managed cloud infrastructure, with proper role-based access control and full audit logging.
+
+The challenge was extracting the business logic from the Java monolith into clean, testable API endpoints — without losing any of the 847 business rules Claude Code had catalogued.
+
+We used a strangler fig pattern: build the new system alongside the old one, routing specific functions to the new stack incrementally. Claude Code assisted at every stage:
+
+**For each module** — patient records, scheduling, billing, pharmacy, labs — Claude Code read the relevant legacy code and produced:
+- A plain-English description of what the module did
+- The complete list of business rules that applied
+- A proposed REST API structure
+- A Node.js implementation of the business logic
+- A test suite covering every business rule, including edge cases identified during codebase archaeology
+
+Engineers reviewed each module, adjusted where needed, and integrated it. The feedback loop was tight — Claude Code updated implementations based on review comments in minutes rather than the days a traditional development cycle required.
+
+**The result:** ten weeks of parallel development produced a complete new system with full feature parity — including the 340 undocumented business rules that had caused both previous migration attempts to fail.
+
+## Phase 4 — Testing and Cutover (Week 11–12)
+
+Claude Code generated a comprehensive regression test suite based on its analysis of legacy system behaviour: 1,200 test cases covering patient record operations, scheduling edge cases, billing calculations, pharmacy alerts, and lab result handling.
+
+We ran both systems in parallel for two weeks, comparing outputs for every transaction. Claude Code monitored the comparison results and flagged discrepancies — most of which turned out to be cases where the new system was actually more correct than the legacy system, handling edge cases that the old code had silently mishandled for years.
+
+Cutover weekend was quiet. Three hours of scheduled downtime, data migration, validation, go-live. No emergency rollback. No missing features discovered post-launch.
+
+## The Results
+
+- **Timeline:** 12 weeks from kickoff to production — versus 6+ months spent on each of the two failed previous attempts
+- **Performance:** Patient record load time dropped from 8–12 seconds to under 400 milliseconds
+- **Integrations:** Insurance verification, lab equipment, and a patient appointment app live within 60 days of go-live — impossible with the old monolith
+- **Compliance:** Full audit logging, role-based access control, encrypted storage — passing the review the legacy system would have failed
+- **Reliability:** Zero unplanned downtime in six months since go-live, replacing the single on-premise server with cloud infrastructure and automatic failover
+
+## What Made the Difference
+
+**Comprehensive understanding before any rewriting.** Claude Code's codebase archaeology phase produced a complete picture of what the legacy system actually did — including the undocumented business rules that sank the previous two attempts. You cannot reliably rebuild what you do not fully understand.
+
+**AI speed with human-reviewed quality.** Claude Code reads 250,000 lines in days. Human engineers catch the nuances that require clinical domain knowledge. Neither alone is sufficient. Together, they move faster and miss less than any traditional team.
+
+**Incremental migration with continuous validation.** The strangler fig approach, supported by Claude Code maintaining parallel test suites, meant every module was validated before the previous one was retired. There was no moment where the entire system was in an unknown state.
+
+## The Broader Lesson for Healthcare IT
+
+Legacy hospital management systems are not unique. Every clinic network, every healthcare group of any size has systems like this — mission-critical, poorly documented, expensive to maintain, impossible to extend, and genuinely frightening to replace.
+
+They persist not because organisations want to keep them, but because the cost and risk of migration have historically been too high. Two failed attempts consuming months of budget and internal goodwill are enough to make any IT director defer the decision indefinitely.
+
+Claude Code does not eliminate the complexity of legacy migration. Healthcare systems are genuinely complex, and that complexity does not disappear because an AI can read code faster. What it eliminates is the **unknown** — the undocumented business rules, the invisible dependencies, the inherited logic that nobody can explain.
+
+When you know exactly what a system does before you replace it, migration becomes an engineering problem rather than an archaeological expedition. Engineering problems, with the right tools and team, have predictable timelines and outcomes.
+
+If your organisation is running a system nobody wants to touch, that is exactly where the conversation starts.
+    `,
+  },
+  {
     slug: "ai-coding-assistants-agentic-development",
     title: "Claude Code vs GitHub Copilot: Why Agentic AI Is the Future of Software Development",
     excerpt:
