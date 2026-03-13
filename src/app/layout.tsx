@@ -58,7 +58,6 @@ export const metadata: Metadata = {
       "Transform your business with autonomous AI agents that think, plan, and execute.",
     images: ["/og-image.png"],
   },
-  manifest: "/manifest.json",
   icons: {
     icon: [
       { url: "/favicon.png", sizes: "512x512", type: "image/png" },

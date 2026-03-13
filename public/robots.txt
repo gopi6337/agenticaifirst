@@ -1,17 +1,20 @@
 # AgenticAI First - robots.txt
 
-# Block static media assets to preserve crawl budget
-# (font files, internal Next.js media — not needed for indexing)
+# Block non-HTML assets that waste crawl budget
 User-agent: *
 Allow: /
 Disallow: /_next/static/media/
 Disallow: /manifest.json
+Disallow: /_next/static/chunks/
+Disallow: /_next/static/css/
 
 # Google
 User-agent: Googlebot
 Allow: /
 Disallow: /_next/static/media/
 Disallow: /manifest.json
+Disallow: /_next/static/chunks/
+Disallow: /_next/static/css/
 
 # Google AI (AI Overviews)
 User-agent: GoogleOther
