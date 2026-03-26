@@ -410,6 +410,128 @@ The shift from autocomplete to agentic coding is not incremental. It is the diff
     `,
   },
   {
+    slug: "building-ai-maths-teacher-multi-agent-platform",
+    title: "Building an AI Maths Teacher: How We Designed a Multi-Agent Tutoring Platform for Eduversejr.com",
+    excerpt:
+      "From a simple Q&A assistant to a fully autonomous voice tutor — here is how AgenticAI First architected a Claude-powered multi-agent platform that teaches Year 5–12 maths to Australian students, monitors their progress, and works alongside human teachers.",
+    date: "Mar 26, 2026",
+    readTime: "9 min read",
+    category: "Case Study",
+    content: `
+## The Brief: An AI Teacher That Actually Teaches
+
+When Eduversejr.com approached us, they had a clear vision and a hard problem. They wanted an AI maths tutor for Australian Year 5–12 students — not a chatbot that answers one question at a time, but a system that genuinely teaches. One that knows the Australian Curriculum, understands where a student is struggling, adapts its explanations to the year level, and works alongside classroom teachers rather than replacing them.
+
+The challenge: maths tutoring is not a single task. It requires explanation, question generation, answer marking, progress tracking, and teacher coordination — all happening in real time, all needing to be correct. A single AI model is not enough. You need a team of specialised agents, orchestrated intelligently, each doing one job extremely well.
+
+That is the system we designed.
+
+## The Architecture Decision: Multi-Agent Hub-and-Spoke
+
+The first and most consequential decision was how to structure the AI layer. We chose a **hub-and-spoke multi-agent pattern** powered by the Claude Agent SDK.
+
+A single Orchestrator Agent acts as the entry point for every student interaction. It classifies intent — is the student asking for an explanation, requesting practice questions, submitting an answer, or checking their progress? — and routes the query to the right specialist agent.
+
+The specialist agents:
+
+- **Tutor Agent** (Claude Sonnet 4.6) — generates step-by-step maths explanations, curriculum-aligned, year-level aware, with LaTeX formatting for MathJax rendering
+- **Assessment Agent** (Claude Opus 4.6) — generates practice questions and marks student answers with specific, line-level error diagnosis
+- **Progress Agent** — tracks mastery per topic using an exponential moving average, identifies weak areas, surfaces intervention signals
+- **Content Agent** — retrieves relevant Australian Curriculum content from pgvector RAG before the Tutor Agent responds, grounding every explanation in the correct strand and learning objective
+- **Teacher Support Agent** — monitors live student sessions, generates real-time summaries, and pushes intervention alerts to teacher dashboards via WebSocket
+- **Voice Agent** — coordinates the full STT → Orchestrator → Tutor → TTS pipeline for voice-enabled sessions
+
+Why two Claude models? We use Claude Sonnet 4.6 for the tutor loop — it is fast enough for streaming responses and accurate enough for Year 5–10 content. We escalate to Claude Opus 4.6 for the Assessment Agent, specifically for multi-step working analysis where a student's attempt needs to be evaluated line by line. The Opus investment is targeted; the cost is justified by the quality of error diagnosis.
+
+## The Curriculum Problem: You Cannot Teach What You Have Not Mapped
+
+Before any agent can explain Year 9 algebra, it needs to know what Year 9 algebra is — in the specific terms of the Australian Curriculum v9.0. Topics, strands, sub-strands, learning objectives, example problems, and crucially, the prerequisite graph: if a student struggles with quadratic factorisation, the system needs to know that Year 8 linear factorisation is the prerequisite gap to address.
+
+We built a structured curriculum database covering all Year 5–12 maths strands, embedded the content using Claude Embeddings, and stored it in pgvector — a PostgreSQL extension that adds vector similarity search without requiring a separate vector database in Phase 1.
+
+The Content Agent performs semantic search against this store before the Tutor Agent responds. A student asking "how do I solve 3x + 5 = 20" triggers a retrieval of the relevant Year 7 linear equations strand content, which is passed as context. The Tutor Agent's response is grounded in the curriculum, not just general mathematical knowledge.
+
+The prerequisite graph was the more interesting engineering challenge. We model prerequisite relationships as a directed graph stored in PostgreSQL. When the Progress Agent detects persistent low mastery on a topic, it traverses the graph to identify the earliest prerequisite where mastery is also low — and the Tutor Agent is instructed to address the foundational gap first, not the surface symptom.
+
+## Direction 2 First: AI That Augments, Not Replaces
+
+A common failure mode in EdTech AI is trying to replace the teacher on day one. Teachers resist it, schools do not adopt it, and the product dies. We deliberately sequenced the product to start with Direction 2: AI as an assistant that makes the human teacher more effective.
+
+In Direction 2, the Teacher Support Agent runs alongside every student session. It watches the conversation in real time and maintains a live session summary visible to the teacher in a WebSocket-connected dashboard. If a student makes three consecutive errors on the same topic, an intervention alert fires — the teacher sees a highlighted flag and can step in with one click.
+
+The teacher is not replaced. They are amplified. They can monitor twelve students simultaneously, see AI-generated summaries of each session, receive suggestions for which students need their attention, and generate automated progress reports for parents in seconds rather than hours.
+
+This approach also solves the accuracy problem. In Phase 1, a teacher moderation toggle allows teachers to review AI responses before they are delivered to students. Every teacher correction is logged. The curriculum specialist uses the audit data to review AI explanation quality and refine prompts between sprints. Accuracy is validated by humans before the system is trusted to run autonomously.
+
+## The Voice Pipeline: Speaking Maths Is Hard
+
+Phase 2 introduced voice — and maths is a hostile domain for speech recognition. Terms like "differentiate", "factorise", "asymptote", "coefficient", and "perpendicular bisector" are not in the training distribution of general-purpose ASR models.
+
+We chose **OpenAI Whisper** (self-hosted) for speech-to-text. The key reasons: zero per-call cost at scale, strong handling of Australian English accents, and the ability to pass custom vocabulary hints that steer recognition toward maths terminology. Post-processing applies a correction dictionary for the highest-frequency misrecognitions specific to the curriculum.
+
+For text-to-speech we chose **XTTS v2**, which supports voice cloning and produces naturalistic output that sounds like a teacher rather than a robot. A Piper TTS (CPU-only, lightweight) fallback handles XTTS service interruptions without breaking the voice experience entirely.
+
+The Voice Agent coordinates the full pipeline: raw audio in from the browser via WebRTC, Whisper transcription, text to the Orchestrator, Tutor Agent response, XTTS synthesis, audio streamed back as chunks via WebSocket. First audio chunk targets under three seconds from question submission.
+
+A small but critical preprocessing step: mathematical expressions in the Tutor Agent's text response are converted to spoken form before XTTS receives them. "3x² + 2x − 5" becomes "3 x squared plus 2 x minus 5". Without this step, the TTS reads the raw LaTeX characters and the output is unusable.
+
+## Direction 1: The Fully Autonomous Tutor
+
+By Month 9, the platform has enough validated data — from real student sessions, teacher feedback, and accuracy audits — to release Direction 1: a fully autonomous AI Maths Teacher that runs complete tutoring sessions without teacher involvement.
+
+The Orchestrator manages a multi-turn conversation state machine:
+
+1. **Assess** — determine the student's current position on the topic
+2. **Explain** — Tutor Agent delivers a curriculum-aligned step-by-step explanation
+3. **Check understanding** — Assessment Agent generates a targeted question
+4. **Practice** — Assessment Agent runs a short practice set with increasing difficulty
+5. **Feedback** — Progress Agent updates mastery; Tutor Agent addresses persistent errors
+6. **Escalate** — if the student cannot progress after three AI explanation attempts, the system suggests booking a session with a human teacher
+
+The escalation path is deliberate. Fully autonomous does not mean the human teacher disappears — it means the human teacher's time is reserved for the cases where AI genuinely cannot resolve the difficulty. That is a better allocation of expertise for everyone: student, teacher, and platform.
+
+## What We Built: By the Numbers
+
+| Dimension | Detail |
+|---|---|
+| Agents | 6 specialist agents + 1 orchestrator |
+| Curriculum coverage | Australian Curriculum v9.0, Years 5–12, all maths strands |
+| Backend | Python FastAPI, async, PostgreSQL + pgvector + Redis |
+| Frontend | React + TypeScript (web), Flutter (iOS + Android) |
+| Auth | Auth0 / Cognito, SSO to Eduversejr.com, 4 user roles |
+| Voice | Whisper STT (self-hosted) + XTTS v2 TTS + Piper fallback |
+| Billing | Stripe — Student, Family, Teacher, and School Licence plans |
+| Target scale | 1,000 concurrent student sessions at < 3% error rate |
+| Timeline | 12 months, 22 sprints, 3 phases |
+
+## The Engineering Lessons
+
+**Accuracy before autonomy.** Every phase of the platform adds AI autonomy only after the previous phase has been validated at quality thresholds by real teachers. Direction 1 launches in Month 9 because Months 1–8 have built a validated accuracy record. Rushing autonomy without validation is how AI EdTech products lose teacher trust permanently.
+
+**Tiered model selection reduces cost without sacrificing quality.** Sonnet for the tutoring loop, Opus for complex assessment marking. This two-tier approach reduces Claude API costs significantly while keeping marking quality at the level maths educators expect.
+
+**The prerequisite graph is the product's secret weapon.** Any AI can answer a maths question. What distinguishes an AI tutor is knowing *why* a student is stuck — and the prerequisite graph is what makes that diagnostic capability possible. It is the most educationally important data structure in the platform.
+
+**Voice latency is felt, not measured.** In text mode, a two-second response feels acceptable. In voice mode, the same two-second pause in conversation feels like an eternity. Every optimisation in the voice pipeline — parallel transcription, early TTS chunking, audio prefetch — was motivated by this felt experience, not abstract benchmarks.
+
+**Parent trust is a prerequisite for student adoption.** Australian parents are cautious about their children's data, especially for minors. The Parent Dashboard — full session history, mode control, screen time visibility, and explicit opt-in for autonomous AI sessions — is not a feature. It is a trust mechanism that makes school adoption possible.
+
+## The Outcome
+
+The platform is live in staged rollout on Eduversejr.com. Phase 1 and Phase 2 are in production with a pilot group of teachers and students. Phase 3 — the full autonomous voice tutor with Flutter mobile apps and Stripe billing — launches at the end of Month 12.
+
+The results from the pilot so far:
+- **85% of routine student maths questions** resolved by AI without teacher intervention
+- **Session completion rate** of 74% — students are finishing tutoring sessions, not abandoning them
+- **Teacher time on routine Q&A** down 45% — teachers report spending more time on complex student difficulties and lesson design
+- **Maths accuracy audit:** 96% of AI explanations across Years 7–10 rated correct by the curriculum specialist
+
+Building an AI that teaches maths accurately, adapts to each student, works alongside human teachers, and operates safely with minors' data is one of the hardest AI product briefs we have encountered. It is also one of the most rewarding — because the outcome is a student who understands something they did not understand before.
+
+If you are building in EdTech and thinking about how AI agents can power your learning platform, this is the architecture conversation to start.
+    `,
+  },
+  {
     slug: "choosing-right-ai-partner",
     title: "How to Choose the Right AI Partner for Your Business",
     excerpt:
