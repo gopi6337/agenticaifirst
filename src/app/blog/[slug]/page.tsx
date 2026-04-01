@@ -17,7 +17,7 @@ function renderInlineBold(text: string): React.ReactNode {
 }
 
 export function generateStaticParams() {
-  return BLOG_POSTS.map((post) => ({ slug: post.slug }));
+  return BLOG_POSTS.filter((p) => !p.hidden).map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {

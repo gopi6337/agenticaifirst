@@ -56,7 +56,7 @@ const blogListJsonLd = {
     name: "AgenticAI First",
     url: "https://agenticaifirst.com",
   },
-  blogPost: BLOG_POSTS.map((post) => ({
+  blogPost: BLOG_POSTS.filter((p) => !p.hidden).map((post) => ({
     "@type": "BlogPosting",
     headline: post.title,
     url: `https://agenticaifirst.com/blog/${post.slug}/`,
@@ -96,7 +96,7 @@ export default function BlogIndexPage() {
         </div>
 
         <div className="space-y-8">
-          {BLOG_POSTS.map((post) => (
+          {BLOG_POSTS.filter((p) => !p.hidden).map((post) => (
             <article key={post.slug} className="group">
               <Link href={`/blog/${post.slug}/`}>
                 <div className="p-8 rounded-2xl bg-slate-900/60 border border-white/8 hover:border-purple-500/40 transition-all duration-300">

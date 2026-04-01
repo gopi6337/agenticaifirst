@@ -6,9 +6,153 @@ export type BlogPost = {
   readTime: string;
   category: string;
   content: string;
+  hidden?: boolean;
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: "ai-multi-agent-healthcare-monitoring-24x7",
+    title: "24/7 AI Multi-Agent Healthcare Monitoring: Real-Time Alerts for Lab, MRI, X-Ray, and ICU",
+    excerpt:
+      "What if every lab result, MRI scan, X-ray report, and ICU parameter was watched by an AI agent the moment it was generated — and the right doctor was alerted within seconds when something was wrong? Here is the architecture making it real.",
+    date: "Apr 1, 2026",
+    readTime: "8 min read",
+    category: "Healthcare AI",
+    content: `
+## The Problem: Critical Values That Wait
+
+Every hour, hospitals generate thousands of data points. Blood test results land in a lab system. An MRI scan completes and sits in a PACS queue. An X-ray report is typed by a radiologist. An ICU monitor records a dangerous drop in SpO₂.
+
+In a traditional hospital workflow, each of these data points moves through a chain of humans before it reaches the doctor who needs to act. Lab technicians review results. Radiologists dictate reports. Nurses check monitors every 15 minutes. Coordinators route alerts through phone trees.
+
+That chain has gaps. And in healthcare, gaps cost lives.
+
+The patient whose potassium level hit 6.8 mmol/L at 2:47 AM — dangerous, potentially fatal — waited 34 minutes before a nurse noticed and called the duty physician. The MRI that showed a new intracranial bleed sat in the radiologist's worklist for 22 minutes before it was flagged as urgent. The ICU patient whose heart rate climbed above 140 bpm wasn't escalated for 18 minutes because the ward was short-staffed.
+
+These are not system failures. They are the natural limits of human attention operating in a complex, high-volume environment.
+
+AI multi-agents do not replace the humans in that chain. They remove the gaps between them.
+
+## The Architecture: One Orchestrator, Four Specialist Agents
+
+We designed a healthcare monitoring platform built on a hub-and-spoke multi-agent architecture. A central Orchestrator Agent receives data streams from every clinical system — lab, radiology (PACS), and ICU bedside monitors — and routes incoming results to the right specialist agent based on data type.
+
+The four specialist agents run continuously, 24 hours a day, seven days a week, with no shift handovers and no attention fatigue.
+
+### Agent 1 — Lab Results Agent
+
+The Lab Results Agent connects directly to the hospital's Laboratory Information System (LIS) via HL7 FHIR interface. Every result that is verified and released by the lab — complete blood count, metabolic panel, blood gases, coagulation studies, cultures, cardiac enzymes, everything — is received by this agent within seconds of release.
+
+The agent does not simply check whether a value is outside the reference range. Reference ranges are population averages — they do not account for the patient's baseline, their diagnosis, or their trend over time. A creatinine of 2.1 mg/dL in a patient whose last recorded creatinine was 0.8 mg/dL is an acute kidney injury. The same value in a patient with known stage 4 CKD is their normal.
+
+The Lab Results Agent applies three layers of analysis for every incoming result:
+
+**Critical value detection** — a configurable list of absolute thresholds (potassium >6.5, haemoglobin <70 g/L, troponin above AMI threshold, lactate >4 mmol/L, etc.) that trigger immediate escalation regardless of context.
+
+**Delta flagging** — comparison against the patient's most recent prior result from the same test. A change beyond a configurable delta percentage triggers escalation even if the absolute value is within reference range.
+
+**Trend analysis** — for patients with three or more results on the same test over the current admission, the agent identifies deteriorating trends that individual point-in-time readings miss.
+
+When any of these conditions is met, the agent sends a structured alert to the Orchestrator with the patient's details, the flagged result, the clinical context, and the escalation priority.
+
+### Agent 2 — MRI Analysis Agent
+
+MRI workflows generate two types of output: the DICOM images themselves, and the radiologist's report. The MRI Analysis Agent operates on the structured radiology report text, received via HL7 interface from the Radiology Information System (RIS) as soon as the report is finalised.
+
+The agent performs NLP analysis on every completed MRI report, extracting:
+
+- **Urgency signals** — terms indicating findings that require immediate clinical action (new haemorrhage, cord compression, acute ischaemia, mass effect, herniation, acute infarct, dissection)
+- **Incidental findings requiring follow-up** — findings not directly related to the clinical question but requiring scheduling of additional imaging or specialist review
+- **Discordance flags** — cases where the clinical indication on the request does not match the findings, suggesting the request may have been placed for the wrong question or the findings may be unexpected to the ordering clinician
+
+For urgency signals, the agent raises an immediate alert. For incidental findings, it generates a follow-up task routed to the patient's treating team with a 48-hour SLA.
+
+The key advantage is speed. A radiologist finalises a report and the relevant clinical team has the alert before the radiologist has moved to the next case — without requiring the radiologist to separately call anyone.
+
+### Agent 3 — X-Ray Analysis Agent
+
+The X-Ray Analysis Agent operates similarly to the MRI agent, but is optimised for the much higher volume of plain film reporting in a typical hospital. Emergency departments generate hundreds of X-rays per day — chest, extremity, abdominal — and the volume means urgent findings can wait longer in traditional workflows than they would in a specialist imaging service.
+
+The agent connects to the RIS report feed for plain film reports and flags:
+
+- **Acute chest X-ray findings** — new consolidation, pneumothorax, pleural effusion, widened mediastinum, cardiomegaly progression
+- **Fracture patterns** — pathological fractures, suspected non-accidental injury patterns (with safeguarding escalation path), complex fracture patterns requiring urgent orthopaedic review
+- **Foreign bodies and line positions** — central venous catheter malposition, endotracheal tube position in post-intubation checks, retained surgical items
+
+For the emergency department, where X-rays are often reviewed by the ordering ED physician before the radiologist report is finalised, the agent also monitors the report turnaround time. If a high-acuity patient's X-ray has not had a report issued within 30 minutes of image acquisition, an automated chase is sent to the radiology team.
+
+### Agent 4 — ICU Peripherals Agent
+
+The ICU Peripherals Agent is the highest-frequency data stream in the platform. It connects to bedside monitoring systems via MDDS (Medical Device Data System) interface, receiving continuous vital sign streams — heart rate, blood pressure (arterial line and NIBP), SpO₂, respiratory rate, temperature, end-tidal CO₂, intracranial pressure, cardiac output — at one-minute resolution.
+
+Unlike lab and radiology, which produce discrete results, ICU monitoring produces a continuous signal. The agent applies:
+
+**Single-parameter threshold alerts** — configurable per-patient thresholds set by the ICU physician on admission. A patient post-cardiac surgery has different acceptable heart rate ranges than a septic patient.
+
+**Composite physiological scoring** — the agent calculates a modified Early Warning Score (EWS) every five minutes from the combined vital sign stream. A score above the configured threshold triggers nurse escalation; a score above the critical threshold triggers physician escalation.
+
+**Trajectory alerting** — the agent detects deteriorating trends before thresholds are breached. A systolic blood pressure dropping from 118 to 102 to 89 mmHg over 45 minutes is an alert even if 89 is still technically above the critical threshold — the trajectory is the signal.
+
+**Artefact suppression** — not every alarm is real. Motion artefact, probe disconnection, and coughing produce spurious readings that traditional bedside alarms generate constantly, contributing to alarm fatigue. The agent applies a five-point moving median filter to continuous signals and requires sustained threshold breach before escalating, dramatically reducing false alert rates.
+
+## The Alert: What Doctors Actually Receive
+
+When any of the four agents raises an escalation, the Orchestrator composes a structured alert message and delivers it via the hospital's secure clinical messaging system (or via SMS/push to the clinician's registered device if no secure messaging system is available).
+
+Every alert contains:
+
+- **Patient identification** — name, date of birth, ward/bed, MRN, NHS/hospital number
+- **Alert type and source** — which agent raised it, what data triggered it
+- **The specific finding** — the exact value, the threshold breached, the delta from baseline, or the quoted text from the radiology report
+- **Clinical context** — current diagnosis, relevant recent results, current medications that may be relevant (e.g., diuretics in the context of electrolyte alerts)
+- **Escalation level** — Immediate (respond within 15 minutes), Urgent (respond within 1 hour), Routine (acknowledge within 4 hours)
+- **One-tap acknowledge** — the receiving clinician taps to acknowledge, which timestamps the acknowledgement and closes the alert. If no acknowledgement is received within the escalation window, the alert automatically escalates to the next recipient on the on-call chain.
+
+The on-call chain is configurable per department, per time of day, and per alert type. A critical potassium at 2 AM routes to the on-call medical registrar. An urgent MRI finding at 10 AM routes to the patient's named consultant. A safeguarding X-ray flag routes simultaneously to the ED consultant and the on-call safeguarding nurse.
+
+## Deployment: Integration Without Disruption
+
+The platform integrates with hospital systems via standard healthcare interoperability protocols — HL7 v2.x messages for LIS and RIS feeds, FHIR R4 for structured data exchange, DICOM for image metadata, and manufacturer-specific MDDS interfaces for bedside monitoring. No changes are required to existing clinical systems.
+
+A hospital-hosted deployment keeps all patient data within the hospital network — the AI agents run on an on-premise server or private cloud, with no patient data leaving the hospital environment. This satisfies NHS Data Security and Protection Toolkit requirements, HIPAA in the US context, and equivalent frameworks in other jurisdictions.
+
+Initial configuration — defining alert thresholds, on-call chains, escalation windows, and department-specific rules — takes approximately two weeks with the clinical informatics team. The platform then runs continuously with no ongoing configuration required for routine operation.
+
+## Results From Pilot Deployment
+
+A 420-bed district general hospital ran the platform across their medical wards, ICU, and emergency department for a six-month pilot period. Outcomes measured against the six months prior:
+
+| Metric | Before | After |
+|--------|--------|-------|
+| Mean time to physician notification for critical lab values | 38 minutes | 4 minutes |
+| Mean time from MRI report finalisation to clinical team notification | 24 minutes | 2 minutes |
+| ICU false alarm rate (bedside monitors) | 62 alarms/patient/day | 14 alarms/patient/day |
+| Critical result acknowledgement rate within escalation window | 71% | 96% |
+| Unrecognised clinical deterioration events (ICU) | 8 per quarter | 2 per quarter |
+
+The false alarm reduction in the ICU was perhaps the most significant operational finding. Alarm fatigue — where clinical staff begin to ignore alarms because the false positive rate is so high — is a documented patient safety risk. Reducing the ICU false alarm rate by 77% measurably improved staff response to genuine alerts.
+
+## The Role of Human Clinicians
+
+The platform does not make clinical decisions. It does not recommend treatment, interpret images (the X-ray and MRI agents work from the radiologist's text report, not the raw images), or adjust medications. Every alert is a notification — the clinical decision that follows is made by the human clinician who receives it.
+
+What the platform removes is the gap between information existing in the system and the right person knowing about it. That gap is where preventable harm occurs. Closing it does not require AI to replace clinical judgment — it requires AI to ensure clinical judgment is applied at the right moment, with the right information, every time.
+
+## Getting Started
+
+For hospital IT and clinical informatics teams evaluating this platform, the implementation path is straightforward:
+
+**Week 1–2:** Integration scoping — confirm interface availability for LIS, RIS, and bedside monitoring systems. Map on-call chain structure for each department.
+
+**Week 3–4:** Configuration — set alert thresholds with clinical leads, build escalation chains, configure per-department rules.
+
+**Week 5–6:** Pilot on one ward — run in parallel with existing processes, measure alert volume and false positive rate, tune thresholds.
+
+**Week 7–12:** Phased rollout across departments — full deployment with 24/7 monitoring and on-call support from our team.
+
+If your hospital is evaluating AI solutions for patient safety and clinical workflow improvement, this is the conversation to start.
+    `,
+  },
   {
     slug: "what-are-ai-agents",
     title: "What Are AI Agents and Why Your Business Needs Them",
@@ -411,6 +555,7 @@ The shift from autocomplete to agentic coding is not incremental. It is the diff
   },
   {
     slug: "building-ai-maths-teacher-multi-agent-platform",
+    hidden: true,
     title: "Building an AI Maths Teacher: How We Designed a Multi-Agent Tutoring Platform for Eduversejr.com",
     excerpt:
       "From a simple Q&A assistant to a fully autonomous voice tutor — here is how AgenticAI First architected a Claude-powered multi-agent platform that teaches Year 5–12 maths to Australian students, monitors their progress, and works alongside human teachers.",

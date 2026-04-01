@@ -24,7 +24,7 @@ export default function BlogSection() {
           description="Expert perspectives on AI agents, industry trends, and practical guides to help your business thrive."
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {BLOG_POSTS.map((post) => (
+          {BLOG_POSTS.filter((p) => !p.hidden).map((post) => (
             <Link
               key={post.slug}
               href={`/blog/${post.slug}/`}
