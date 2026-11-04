@@ -1,175 +1,73 @@
 # AgenticAI First - Codebase Summary
 
-## Project Overview
+Marketing website for AgenticAI First, an agentic AI solutions company, live at https://agenticaifirst.com. It is a static site with no backend. Page content is stored in TypeScript files.
 
-A **single-page marketing website** for "AgenticAI First" — an agentic AI solutions company. Built with **Next.js 16 + TypeScript + Tailwind CSS 4**, deployed as a static site to **GitHub Pages**.
+## Technology
 
----
+- **Framework:** Next.js 16 (App Router) with React 19 and TypeScript 5
+- **Styling:** Tailwind CSS 4, with theme colors and animations in `src/app/globals.css`. The Typography plugin is not installed, so `prose` classes have no effect.
+- **Hosting:** static export to GitHub Pages, on a custom domain set by `public/CNAME`
+- **Forms:** the contact and newsletter forms both post to one Formspree endpoint
+- **Analytics:** Google Analytics, loaded in `src/app/layout.tsx`
 
-## Technology Stack
-
-- **Framework**: Next.js 16.1.6 (React 19.2.3)
-- **Language**: TypeScript 5
-- **Styling**: Tailwind CSS 4 with PostCSS
-- **Deployment**: Static export (GitHub Pages)
-- **Linting**: ESLint 9
-- **Total LOC**: ~414 lines of TypeScript/React code
-
----
-
-## Directory Structure
+## Structure
 
 ```
 src/
 ├── app/
-│   ├── layout.tsx          # Root layout + SEO metadata
-│   ├── page.tsx            # Home page (assembles all sections)
-│   └── globals.css         # Tailwind theme + custom animations
+│   ├── page.tsx               # Home page and services/industries JSON-LD
+│   ├── layout.tsx             # Root layout, metadata, analytics
+│   ├── globals.css
+│   ├── blog/                  # Blog index and blog/[slug] post pages
+│   ├── case-studies/          # Case study index and case-studies/[slug] pages
+│   ├── legal/                 # cookies, privacy, security, terms
+│   └── resources/             # community, docs, integrations
 ├── components/
-│   ├── layout/
-│   │   ├── Navbar.tsx      # Sticky nav with mobile hamburger menu
-│   │   └── Footer.tsx      # Multi-column footer with social links
-│   ├── sections/
-│   │   ├── HeroSection.tsx          # Hero banner + stats
-│   │   ├── ServicesSection.tsx      # 12 AI services grid
-│   │   ├── HowItWorksSection.tsx    # 4-step process
-│   │   ├── WhyChooseUsSection.tsx   # 4 differentiators
-│   │   ├── TestimonialsSection.tsx  # 3 customer testimonials
-│   │   └── CTASection.tsx           # Contact form
-│   └── ui/
-│       ├── Button.tsx           # Polymorphic button/link component
-│       ├── ServiceCard.tsx      # Service grid cards with icons
-│       ├── StepCard.tsx         # Process step cards
-│       ├── TestimonialCard.tsx  # Testimonial quote cards
-│       ├── SectionHeading.tsx   # Section title/label/description
-│       ├── GradientText.tsx     # Gradient text wrapper
-│       └── ContactForm.tsx      # Lead capture form
-├── hooks/
-│   └── useScrollReveal.ts  # Intersection Observer for scroll animations
-└── lib/
-    └── constants.ts        # All content data (services, testimonials, etc.)
+│   ├── layout/                # Navbar, Footer
+│   ├── sections/              # Home page sections
+│   └── ui/                    # Button, ContactForm, cards, headings
+├── hooks/useScrollReveal.ts   # Adds the scroll reveal animation
+└── lib/                       # Site content (see below)
+scripts/                       # Favicon, share image, and logo tools
+public/                        # Images, CNAME, robots.txt, sitemap.xml, llms.txt, og/
 ```
 
----
+## Home Page Order
 
-## Page Sections (Single Page, Anchor Navigation)
+Hero, Services, Industries, How It Works, How We Build Agents You Can Trust (`ProductionAgentsSection`), Why Choose Us, About, Built by Us (`OurWorkSection`), Case Studies, Blog (6 newest posts), FAQ, Contact.
 
-| Section | Component | Content |
-|---------|-----------|---------|
-| Hero | `HeroSection` | "Build Smarter with Agentic AI" headline + 2 CTAs + 4 stats |
-| Services | `ServicesSection` | Grid of 12 AI service offerings |
-| How It Works | `HowItWorksSection` | 4-step methodology: Discovery → Design → Deploy → Optimize |
-| Why Choose Us | `WhyChooseUsSection` | 4 differentiators: Agentic-First, Enterprise Security, Rapid Deployment, Measurable ROI |
-| Testimonials | `TestimonialsSection` | 3 enterprise customer testimonials |
-| CTA/Contact | `CTASection` | Lead generation form (name, email, company, message) |
+`TestimonialsSection` is commented out in `page.tsx`.
 
----
+## Where Content Lives
 
-## 12 Services Offered
+| File | Content |
+|------|---------|
+| `src/lib/constants.ts` | Navigation, 15 services, 8 industries, process steps, differentiators, production practices, platforms, footer links |
+| `src/lib/blog.ts` | 11 blog posts; 1 is hidden with `hidden: true` |
+| `src/lib/casestudies.ts` | 8 case studies |
+| `src/lib/resources.ts` | 9 docs guides and 10 integration categories |
+| `src/components/sections/FAQSection.tsx` | 12 FAQ entries, also output as JSON-LD |
+| `public/llms.txt` | Summary of the site for AI crawlers; keep it in step with the site |
+| `public/sitemap.xml` | Written by hand; add new pages here |
 
-All services are defined in `src/lib/constants.ts`:
+The hero's "AI Solutions" stat in `HeroSection.tsx` and the "platforms across categories" count in `resources/integrations/page.tsx` are hard-coded. Update them when services or integrations change.
 
-1. Full-Stack Development
-2. AI Agent Development
-3. Chatbot Solutions
-4. Process Automation
-5. AI Consulting
-6. Data Analytics & BI
-7. NLP Solutions
-8. Computer Vision
-9. MLOps & Infrastructure
-10. AI Integration Services
-11. Custom Model Training
-12. AI Security & Compliance
+## Adding a Blog Post
 
----
+1. Add the post at the top of `BLOG_POSTS` in `src/lib/blog.ts`. The list and home page show posts in array order, not by date.
+2. Add a share image entry in `scripts/make-og-image.mjs`, then run `node scripts/make-og-image.mjs`. It rebuilds every image, so use `git restore` on any existing images you don't mean to change.
+3. Add the post to `public/sitemap.xml` and `public/llms.txt`.
 
-## Design & Styling
+Post content supports `## ` headings, `- ` bullets, `**bold**`, and lines that are entirely bold, which render as subheadings. Links and tables are not supported.
 
-- **Dark theme** with gradient accents (purple → blue → pink)
-- **Custom color palette**: violet-deep, purple-vivid, blue-electric, cyan-bright, pink-hot, fuchsia-neon
-- **Gradient borders** and **card glow** hover effects
-- **Scroll-reveal animations** via Intersection Observer hook
-- **Floating blob** decorative background elements
-- **Mobile-first** responsive design with `md:` and `lg:` breakpoints
-
-### Custom CSS Classes (globals.css)
-
-- `.scroll-reveal` / `.scroll-reveal.revealed` — Scroll animation states
-- `.animate-float`, `.animate-float-delayed`, `.animate-float-slow` — Floating animations
-- `.gradient-text` — Gradient text effect
-- `.card-glow` — Card hover glow + lift effect
-- `.gradient-border` — Gradient border on cards
-- `.animate-pulse-glow` — Pulsing button glow
-- `.step-line` — Connecting line between process steps
-
----
-
-## Key Patterns & Architecture
-
-### Content Management
-All page content is centralized in `src/lib/constants.ts`:
-- `NAV_LINKS` — 5 navigation items
-- `SERVICES` — 12 service offerings with icons
-- `STEPS` — 4-step methodology
-- `DIFFERENTIATORS` — 4 key value propositions
-- `TESTIMONIALS` — 3 customer quotes
-- `FOOTER_LINKS` — 4 footer link categories
-
-### Polymorphic Button Component
-The `Button` component renders as either `<a>` (link) or `<button>` based on props, with 3 variants (primary, secondary, outline) and 3 sizes (sm, md, lg).
-
-### Scroll-Triggered Animations
-The `useScrollReveal` hook uses Intersection Observer to animate elements:
-- Elements start with `.scroll-reveal` class (opacity: 0, translateY: 30px)
-- When 10% visible, `.revealed` class is added (animates to opacity: 1, translateY: 0)
-
-### Form State Management
-`ContactForm` uses React state for submission handling, success state with confirmation message, and form reset.
-
----
-
-## Deployment Configuration
-
-### Next.js (`next.config.ts`)
-- `output: "export"` — Static site generation
-- `basePath: "/agenticaifirst"` — GitHub Pages subpath
-- `images: { unoptimized: true }` — Disable image optimization for static export
-
-### GitHub Actions (`.github/workflows/deploy.yml`)
-- Triggers on push to `master` branch
-- Node.js 20 with npm cache
-- Build → Upload artifact (`out/`) → Deploy to GitHub Pages
-
-### SEO Metadata (`layout.tsx`)
-- Title: "AgenticAI First - Everything AI, Under One Roof"
-- Open Graph meta tags for social sharing
-- Keywords: AI, Agentic AI, Artificial Intelligence, Automation, etc.
-- Base URL: https://agenticaifirst.com
-
----
-
-## Build Commands
+## Commands
 
 | Command | Purpose |
 |---------|---------|
 | `npm run dev` | Development server |
-| `npm run build` | Static build to `/out` |
-| `npm run start` | Production server |
+| `npm run build` | Static build to `out/` |
 | `npm run lint` | ESLint check |
 
----
+## Deployment
 
-## Git History (Recent)
-
-| Commit | Description |
-|--------|-------------|
-| `26d4197` | Add basePath for GitHub Pages subpath deployment |
-| `19dc867` | Configure static export and GitHub Pages deployment |
-| `ba3b1be` | Rebrand to AgenticAI First, fix card issues, add 12 services |
-| `4b88231` | WIP: Attempt card content centering and improve text visibility |
-| `af466b5` | Fix gradient-border cards showing empty content |
-
----
-
-*Generated on: 2026-02-09*
+Each push to `master` runs `.github/workflows/deploy.yml`, which builds with Node.js 20 and deploys `out/` to GitHub Pages. There is no staging site, so a push goes straight to production.
