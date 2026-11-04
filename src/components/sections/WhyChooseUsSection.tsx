@@ -51,8 +51,8 @@ export default function WhyChooseUsSection() {
             </h2>
             <p className="text-slate-400 text-lg leading-relaxed mb-6">
               We don&apos;t just implement AI — we engineer autonomous agents
-              that become an integral part of your team, learning and improving
-              with every interaction.
+              that become an integral part of your team, with the testing and
+              oversight to keep them improving.
             </p>
             <p className="text-slate-400 leading-relaxed">
               Our team combines deep technical expertise with real-world business

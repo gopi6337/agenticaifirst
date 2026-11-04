@@ -62,7 +62,7 @@ export default function HeroSection() {
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 scroll-reveal">
           {[
             { value: "25+", label: "Years of Experience" },
-            { value: "12", label: "AI Solutions" },
+            { value: "15", label: "AI Solutions" },
             { value: "100%", label: "Commitment to Results" },
             { value: "24/7", label: "AI Uptime" },
           ].map((stat) => (

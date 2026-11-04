@@ -8,12 +8,12 @@ const FAQ_ITEMS = [
   {
     question: "What is Agentic AI?",
     answer:
-      "Agentic AI refers to autonomous AI systems powered by large language models (LLMs) that can understand goals, break them into steps, use tools, and execute tasks independently. Unlike traditional automation that follows rigid rules, agentic AI adapts to changing conditions, handles edge cases intelligently, and improves through learning.",
+      "Agentic AI refers to autonomous AI systems powered by large language models (LLMs) that can understand goals, break them into steps, use tools, and execute tasks independently. Unlike traditional automation that follows rigid rules, agentic AI adapts to changing conditions, and handles edge cases intelligently, within limits set by people.",
   },
   {
     question: "How can AI agents help my business?",
     answer:
-      "AI agents automate repetitive workflows, provide 24/7 customer support, process documents and data at scale, qualify leads, manage inventory, and much more. Businesses typically see 40-70% cost reductions, 10x faster processing times, and significant improvements in accuracy and customer satisfaction.",
+      "AI agents automate repetitive workflows, provide 24/7 customer support, process documents and data at scale, qualify leads, manage inventory, and much more. The biggest gains usually come from redesigning a whole workflow around the agent, rather than automating single tasks.",
   },
   {
     question: "What industries do you serve?",
@@ -28,17 +28,37 @@ const FAQ_ITEMS = [
   {
     question: "What is the ROI of implementing AI agents?",
     answer:
-      "ROI varies by use case, but our clients typically see 40-70% cost reductions in operational expenses, 3-10x improvements in processing speed, and measurable revenue growth. Every solution we deliver includes built-in analytics so you can track performance and business impact from day one.",
+      "ROI varies by use case, so we agree a baseline and target measure before we build, such as cost per transaction, processing time, or resolution rate. Every solution we deliver includes built-in analytics so you can track performance and business impact from day one.",
   },
   {
     question: "How do AI agents differ from traditional automation?",
     answer:
-      "Traditional automation (RPA) follows pre-defined rules and breaks when processes change. AI agents understand context and intent, adapt to changing conditions, handle exceptions intelligently, and improve through continuous learning. They can process unstructured data, make decisions, and handle complex multi-step workflows that traditional automation cannot.",
+      "Traditional automation (RPA) follows pre-defined rules and breaks when processes change. AI agents understand context and intent, adapt to changing conditions, and handle exceptions intelligently. They can process unstructured data, make decisions, and handle complex multi-step workflows that traditional automation cannot.",
   },
   {
     question: "Is my data secure with AI agents?",
     answer:
-      "Absolutely. We implement comprehensive security measures including data encryption, access controls, audit trails, and compliance with industry regulations. We also offer dedicated security audits for AI projects covering data privacy, prompt injection prevention, and model vulnerability assessments.",
+      "Security is built in from the start, with data encryption, least-privilege access for each agent, audit trails, and controls designed around the regulations that apply to you. We also offer dedicated security audits based on the OWASP Top 10 for Agentic Applications, covering prompt injection, tool misuse, and agent identity.",
+  },
+  {
+    question: "Why do so many AI agent projects stall after the pilot?",
+    answer:
+      "Common reasons are unclear ROI, weak governance, and workflows that were never redesigned for agents. Gartner has predicted that over 40% of agentic AI projects will be canceled by the end of 2027. We address this early by agreeing business measures, testing with automated evals, tracing every run, and increasing autonomy in stages.",
+  },
+  {
+    question: "What are MCP and A2A?",
+    answer:
+      "They are open standards for connecting AI agents. The Model Context Protocol (MCP) connects an agent to tools and data, while Agent2Agent (A2A) lets agents from different vendors work together. Building on them means less custom integration work and less dependence on one vendor.",
+  },
+  {
+    question: "How do you keep AI agents under control?",
+    answer:
+      "Each agent gets its own identity, the minimum access it needs, and a named owner. High-impact actions go through human approval, every run is traced, and automated evals check quality before each release. New agents start in shadow mode and earn more autonomy as results justify it.",
+  },
+  {
+    question: "Does the EU AI Act apply to my AI agents?",
+    answer:
+      "It can, if people in the EU use your system. Most transparency duties, such as telling people they are talking to an AI, have applied since 2 August 2026. Rules for high-risk uses such as hiring, credit, and education now start on 2 December 2027. What applies depends on your use case, so confirm the details with legal counsel.",
   },
   {
     question: "Do I need technical expertise to use your AI solutions?",

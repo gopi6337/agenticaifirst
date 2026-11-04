@@ -45,7 +45,7 @@ export const IMPLEMENTATION_GUIDES: ImplementationGuide[] = [
     id: "automating-customer-support",
     title: "Automating Customer Support",
     description:
-      "How to build AI-powered support that resolves 70%+ of tickets autonomously while keeping customer satisfaction high.",
+      "How to build AI-powered support that resolves routine tickets autonomously and hands the rest to your team, while keeping customer satisfaction high.",
     icon: "🎧",
     steps: [
       "Classify your support tickets by category, frequency, and resolution complexity over the last 6 months.",
@@ -82,7 +82,7 @@ export const IMPLEMENTATION_GUIDES: ImplementationGuide[] = [
     steps: [
       "Define structured job requirements and scoring rubrics for each role you frequently hire.",
       "Integrate an AI sourcing agent with LinkedIn, job boards, and your ATS to surface matched candidates.",
-      "Deploy a resume screening model that scores candidates against your rubric — eliminating unconscious bias.",
+      "Deploy a resume screening model that scores candidates against your rubric, with human review of decisions and regular bias testing.",
       "Automate scheduling: the AI agent coordinates interview slots with candidates and interviewers.",
       "Create an onboarding workflow agent that sends documents, assigns tasks, and checks completion.",
       "Track time-to-hire, offer acceptance rates, and 90-day retention to optimize the pipeline continuously.",
@@ -121,9 +121,81 @@ export const IMPLEMENTATION_GUIDES: ImplementationGuide[] = [
     ],
     relatedCaseStudy: { label: "Sales & Marketing AI Agents", slug: "sales-marketing-ai-agents" },
   },
+  {
+    id: "agent-pilot-to-production",
+    title: "Taking an Agent from Pilot to Production",
+    description:
+      "How to move an agent past the demo stage with clear business measures, staged autonomy, and the governance auditors expect.",
+    icon: "🎯",
+    steps: [
+      "Record a baseline for the workflow and agree the business measure the agent has to improve.",
+      "Redesign the workflow around the agent instead of adding it to a process built for people.",
+      "Build an eval set from real cases, and require it to pass before each release.",
+      "Trace every model call, tool call, and handoff from the first run, and track cost per task.",
+      "Run in shadow mode next to your team, then add autonomy in stages behind approval gates.",
+      "Keep a register of every agent with its owner, purpose, and access, and turn production failures into new evals.",
+    ],
+    relatedCaseStudy: { label: "IT & DevOps Automation", slug: "it-services-devops-automation" },
+  },
+  {
+    id: "securing-ai-agents",
+    title: "Securing AI Agents",
+    description:
+      "A practical checklist based on the risk areas in the OWASP Top 10 for Agentic Applications.",
+    icon: "🛡️",
+    steps: [
+      "List what each agent can read, change, and send, then remove any access it doesn't need.",
+      "Give each agent its own short-lived credentials rather than sharing a person's or a service account's.",
+      "Treat documents, emails, and web pages as untrusted input that could carry hidden instructions to hijack the agent's goal.",
+      "Require human approval for high-impact actions such as payments, deletions, and external messages.",
+      "Vet third-party tools and MCP servers, and control what can be written to an agent's long-term memory.",
+      "Log every action, rehearse how to shut an agent down, and limit how far one agent's failure can spread to others.",
+    ],
+    relatedCaseStudy: { label: "IT & DevOps Automation", slug: "it-services-devops-automation" },
+  },
+  {
+    id: "connecting-agents-mcp-a2a",
+    title: "Connecting Agents with MCP and A2A",
+    description:
+      "How to use open standards to connect agents to your systems, and to each other, without custom integrations for every pair.",
+    icon: "🔌",
+    steps: [
+      "List the tools and data your agents need, and decide which should be read-only.",
+      "Expose those systems through MCP servers with narrowly scoped tools and clear descriptions.",
+      "Use OAuth-based authorization, and bring agent access under your central identity controls.",
+      "Keep each agent's tool list short, because too many tools can overload its context and increase errors.",
+      "Use A2A where agents from different teams or vendors need to delegate work to each other.",
+      "Test against the current protocol versions and track deprecations so upgrades don't catch you out.",
+    ],
+    relatedCaseStudy: { label: "IT & DevOps Automation", slug: "it-services-devops-automation" },
+  },
 ];
 
 export const INTEGRATIONS: IntegrationCategory[] = [
+  {
+    name: "Agent Protocols & Frameworks",
+    icon: "🧠",
+    color: "purple",
+    tools: [
+      { name: "Model Context Protocol (MCP)", icon: "🔌" },
+      { name: "Agent2Agent (A2A)", icon: "🔗" },
+      { name: "LangGraph", icon: "🟢" },
+      { name: "Claude Agent SDK", icon: "🟠" },
+      { name: "OpenAI Agents SDK", icon: "⬛" },
+      { name: "Google ADK", icon: "🔵" },
+      { name: "Microsoft Agent Framework", icon: "🔷" },
+    ],
+  },
+  {
+    name: "Agent Observability",
+    icon: "🔭",
+    color: "cyan",
+    tools: [
+      { name: "LangSmith", icon: "🟢" },
+      { name: "Langfuse", icon: "🔵" },
+      { name: "OpenTelemetry", icon: "🟠" },
+    ],
+  },
   {
     name: "CRM",
     icon: "🤝",

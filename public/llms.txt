@@ -4,22 +4,31 @@
 
 ## What We Do
 
-AgenticAI First designs, builds, and manages custom AI agent systems tailored to each client's business processes. Unlike generic AI tools, our agents work autonomously — reasoning, planning, and taking action to complete multi-step tasks end-to-end without constant human intervention.
+AgenticAI First designs, builds, and manages custom AI agent systems tailored to each client's business processes. Unlike generic AI tools, our agents reason, plan, and take action to complete multi-step tasks end-to-end, with guardrails, human approval for high-impact actions, and full tracing.
 
 ## Core Services
 
-- [AI Consulting & Strategy](https://agenticaifirst.com/#services): Assessing AI readiness, identifying automation opportunities, and building a roadmap for AI adoption.
-- [Custom AI Agent Development](https://agenticaifirst.com/#services): Building purpose-built AI agents for specific business workflows.
-- [Multi-Agent Orchestration](https://agenticaifirst.com/#services): Designing systems where multiple AI agents collaborate to complete complex tasks.
-- [Process Automation](https://agenticaifirst.com/#services): Automating repetitive, rule-based, and decision-heavy processes using AI agents.
-- [AI Integration Services](https://agenticaifirst.com/#services): Connecting AI agents to existing business tools, CRMs, ERPs, and APIs.
-- [Intelligent Document Processing](https://agenticaifirst.com/#services): Extracting, classifying, and acting on data from unstructured documents.
-- [Predictive Analytics](https://agenticaifirst.com/#services): AI-driven forecasting and decision support systems.
-- [Natural Language Interfaces](https://agenticaifirst.com/#services): Conversational AI agents for customer-facing and internal use cases.
-- [AI-Powered Customer Support](https://agenticaifirst.com/#services): Autonomous support agents that resolve queries, triage tickets, and escalate intelligently.
-- [Computer Vision Solutions](https://agenticaifirst.com/#services): Visual inspection, document scanning, and image-based automation.
-- [AI Security & Compliance](https://agenticaifirst.com/#services): Ensuring AI deployments meet regulatory and security standards.
-- [AI Training & Enablement](https://agenticaifirst.com/#services): Upskilling teams to work effectively alongside AI systems.
+- [Full Stack Software Development](https://agenticaifirst.com/#services): Web and mobile applications, from MVPs to enterprise platforms.
+- [Legacy Modernization & Migration](https://agenticaifirst.com/#services): Moving legacy systems to modern stacks using agentic coding tools reviewed by senior engineers.
+- [Workflow Automations](https://agenticaifirst.com/#services): Automating business processes and connecting tools.
+- [AI Employees](https://agenticaifirst.com/#services): 24/7 AI agents that act within set limits, hand off to people when needed, and keep every action on record.
+- [Security Audits for AI Projects](https://agenticaifirst.com/#services): Security assessments using the OWASP Top 10 for Agentic Applications.
+- [Agent Evals & Observability](https://agenticaifirst.com/#services): Tracing, automated evals, regression tests from real failures, and cost monitoring.
+- [Pilot-to-Production & Governance](https://agenticaifirst.com/#services): Workflow redesign, orchestration, approval gates, audit trails, and agent ownership.
+- [AI Tutors & Education Agents](https://agenticaifirst.com/#services): AI teachers for schools and colleges with voice, live whiteboards, adaptive practice, and memory across sessions.
+- [Customer Support Solutions](https://agenticaifirst.com/#services): Intelligent ticketing, auto-routing, and sentiment analysis.
+- [Voice AI & Speech Solutions](https://agenticaifirst.com/#services): IVR systems, voice assistants, transcription, and speech analytics.
+- [AI Integration & API Development](https://agenticaifirst.com/#services): APIs, MCP servers, and A2A connections between agents and existing systems.
+- [Data Analytics & Intelligent Content](https://agenticaifirst.com/#services): Dashboards, predictive models, anomaly detection, and automated content.
+- [AI Consulting & Strategy](https://agenticaifirst.com/#services): Assessing workflows, identifying opportunities, and designing a practical AI roadmap.
+- [Computer Vision Solutions](https://agenticaifirst.com/#services): Quality inspection, document OCR, object detection, and visual search.
+- [AI Training & Upskilling](https://agenticaifirst.com/#services): Workshops, bootcamps, and certification programs for technical and non-technical staff.
+
+## Platforms We Built
+
+- [EduVerseJr](https://eduversejr.com/): Our education startup. Hybrid online learning platform for Grades 5–12 pairing an AI maths teacher with live human teachers.
+- [Reva AI Teacher](https://revaaiteacher.com/): AI tutor for maths, science, and SAT & PSAT prep, Grades 5–12, with voice and a live whiteboard.
+- [Prof. Reva AI](https://www.revaaiprofessor.com/): AI teacher for colleges, installed on one server per college.
 
 ## Industries Served
 
@@ -45,6 +54,9 @@ AgenticAI First designs, builds, and manages custom AI agent systems tailored to
 
 ## Blog
 
+- [24/7 AI Multi-Agent Healthcare Monitoring](https://agenticaifirst.com/blog/ai-multi-agent-healthcare-monitoring-24x7/): Real-time alerts for lab, MRI, X-ray, and ICU.
+- [How Claude Code Migrated a 15-Year-Old Hospital Management System](https://agenticaifirst.com/blog/claude-code-legacy-hospital-system-migration/): Using agentic coding for legacy modernization.
+- [Claude Code vs GitHub Copilot](https://agenticaifirst.com/blog/ai-coding-assistants-agentic-development/): Why agentic AI is the future of software development.
 - [What Are AI Agents and Why Your Business Needs Them](https://agenticaifirst.com/blog/what-are-ai-agents/): An introduction to autonomous AI agents and their business value.
 - [5 Ways Agentic AI Is Transforming Customer Support](https://agenticaifirst.com/blog/ai-transforming-customer-support/): How AI agents are replacing traditional support workflows.
 - [How to Choose the Right AI Partner for Your Business](https://agenticaifirst.com/blog/choosing-right-ai-partner/): A guide to evaluating AI vendors and implementation partners.
@@ -53,6 +65,7 @@ AgenticAI First designs, builds, and manages custom AI agent systems tailored to
 
 - Service model: AI as a Service (AIaaS)
 - Deployment: Custom-built agents tailored per client
-- Approach: Multi-agent orchestration for complex workflows
+- Approach: Multi-agent orchestration for complex workflows, with staged autonomy, evals, tracing, and human approval gates
+- Standards: Model Context Protocol (MCP), Agent2Agent (A2A), OWASP Top 10 for Agentic Applications
 - Website: https://agenticaifirst.com
 - Contact: https://agenticaifirst.com/#contact

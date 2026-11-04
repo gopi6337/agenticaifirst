@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { CASE_STUDIES } from "@/lib/casestudies";
+import { CASE_STUDIES, formatCaseStudyDate } from "@/lib/casestudies";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
@@ -95,11 +95,14 @@ export default function CaseStudiesIndexPage() {
             <article key={cs.slug} className="group">
               <Link href={`/case-studies/${cs.slug}/`}>
                 <div className="h-full p-7 rounded-2xl bg-slate-900/60 border border-white/8 hover:border-purple-500/40 transition-all duration-300 flex flex-col gap-4">
-                  <div className="flex items-center gap-3">
+                  <div className="flex flex-wrap items-center gap-3">
                     <span className="text-3xl">{cs.icon}</span>
                     <span className="text-xs font-medium px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">
                       {cs.industry}
                     </span>
+                    <time dateTime={cs.datePublished} className="text-xs text-slate-400">
+                      {formatCaseStudyDate(cs.datePublished)}
+                    </time>
                   </div>
                   <h2 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
                     How AI Agents Transformed {cs.title} Operations

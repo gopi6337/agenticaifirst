@@ -1,4 +1,4 @@
-import { CASE_STUDIES } from "@/lib/casestudies";
+import { CASE_STUDIES, formatCaseStudyDate } from "@/lib/casestudies";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -110,11 +110,14 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             ← Back to Case Studies
           </Link>
 
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex flex-wrap items-center gap-3 mb-6">
             <span className="text-4xl">{cs.icon}</span>
             <span className="text-xs font-medium px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">
               {cs.industry}
             </span>
+            <time dateTime={cs.datePublished} className="text-sm text-slate-400">
+              {formatCaseStudyDate(cs.datePublished)}
+            </time>
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">

@@ -85,7 +85,7 @@ export default function IntegrationsPage() {
           </h1>
           <p className="text-slate-300 text-xl leading-relaxed max-w-2xl mx-auto">
             Our AI agents plug directly into the tools your team already uses — no ripping
-            and replacing, no disruption. 40+ platforms supported across 8 categories.
+            and replacing, no disruption. 50 platforms and standards supported across 10 categories.
           </p>
         </div>
       </div>

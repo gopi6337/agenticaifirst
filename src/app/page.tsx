@@ -4,8 +4,10 @@ import HeroSection from "@/components/sections/HeroSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import IndustriesSection from "@/components/sections/IndustriesSection";
 import HowItWorksSection from "@/components/sections/HowItWorksSection";
+import ProductionAgentsSection from "@/components/sections/ProductionAgentsSection";
 import WhyChooseUsSection from "@/components/sections/WhyChooseUsSection";
 import AboutSection from "@/components/sections/AboutSection";
+import OurWorkSection from "@/components/sections/OurWorkSection";
 import CaseStudiesSection from "@/components/sections/CaseStudiesSection";
 import BlogSection from "@/components/sections/BlogSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
@@ -72,8 +74,10 @@ export default function Home() {
         <ServicesSection />
         <IndustriesSection />
         <HowItWorksSection />
+        <ProductionAgentsSection />
         <WhyChooseUsSection />
         <AboutSection />
+        <OurWorkSection />
         <CaseStudiesSection />
         <BlogSection />
         {/* <TestimonialsSection /> */}

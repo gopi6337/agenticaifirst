@@ -4,6 +4,7 @@ export const NAV_LINKS = [
   { label: "How It Works", href: "/#how-it-works" },
   { label: "Why Us", href: "/#why-us" },
   { label: "About", href: "/#about" },
+  { label: "Our Work", href: "/#our-work" },
   { label: "Blog", href: "/blog/" },
   { label: "Contact", href: "/#contact" },
 ];
@@ -18,7 +19,7 @@ export const SERVICES = [
   {
     title: "Legacy Modernization & Migration",
     description:
-      "Stuck with outdated code? We transform your legacy systems into modern tech stacks — improving performance, maintainability, and scalability without disrupting your business operations.",
+      "Stuck with outdated code? We use agentic coding tools, reviewed by senior engineers, to move legacy systems onto modern tech stacks — improving performance and maintainability while your business keeps running.",
     icon: "migration",
   },
   {
@@ -30,14 +31,32 @@ export const SERVICES = [
   {
     title: "AI Employees",
     description:
-      "Hire AI agents that work 24/7 — handling customer queries, data entry, scheduling, and more. They learn, adapt, and get better over time without supervision.",
+      "AI agents that work 24/7 — handling customer queries, data entry, scheduling, and more. They act within limits you set, hand off to people when needed, and keep every action on record.",
     icon: "agent",
   },
   {
     title: "Security Audits for AI Projects",
     description:
-      "Comprehensive security assessments for AI systems — covering data privacy, prompt injection, model vulnerabilities, and compliance. Protect your AI investments before they go live.",
+      "Security assessments for AI systems, using the OWASP Top 10 for Agentic Applications — covering prompt injection, goal hijacking, tool misuse, agent identity, memory poisoning, and data privacy — before you go live.",
     icon: "security",
+  },
+  {
+    title: "Agent Evals & Observability",
+    description:
+      "Know what your agents are doing and whether they're getting it right. We set up tracing, automated evals, regression tests from real failures, and cost monitoring for every agent in production.",
+    icon: "analytics",
+  },
+  {
+    title: "Pilot-to-Production & Governance",
+    description:
+      "Agent pilot stuck? We redesign the workflow around it, then add orchestration, approval gates, audit trails, and a named owner for each agent — so you can scale in stages with confidence.",
+    icon: "strategy",
+  },
+  {
+    title: "AI Tutors & Education Agents",
+    description:
+      "AI teachers for schools and colleges — voice conversation, live whiteboards, adaptive practice, memory across sessions, and progress views for parents and staff. We built and run our own education platforms this way.",
+    icon: "training",
   },
   {
     title: "Customer Support Solutions",
@@ -54,7 +73,7 @@ export const SERVICES = [
   {
     title: "AI Integration & API Development",
     description:
-      "Seamlessly plug AI capabilities into your existing tech stack. We build robust APIs, connect third-party AI services, and ensure everything works together without disrupting your operations.",
+      "Connect agents to your existing tech stack. We build APIs and MCP servers so agents can use your tools and data safely, and use A2A so agents from different vendors can work together.",
     icon: "integration",
   },
   {
@@ -93,7 +112,7 @@ export const INDUSTRIES = [
   {
     title: "Healthcare & Education",
     description:
-      "Patient intake automation, appointment scheduling, personalized learning, and compliance monitoring.",
+      "Patient intake automation, appointment scheduling, AI tutors for schools and colleges, and compliance monitoring.",
     icon: "healthcare",
   },
   {
@@ -105,7 +124,7 @@ export const INDUSTRIES = [
   {
     title: "E-Commerce & Retail",
     description:
-      "AI-powered product recommendations, inventory management, dynamic pricing, and personalized shopping experiences.",
+      "AI-powered recommendations, inventory management, dynamic pricing, and getting your store ready for customers' AI shopping agents.",
     icon: "ecommerce",
   },
   {
@@ -117,7 +136,7 @@ export const INDUSTRIES = [
   {
     title: "Customer Support",
     description:
-      "Intelligent ticketing, auto-resolution, sentiment analysis. Handle 70% of inquiries without human intervention.",
+      "Intelligent ticketing, auto-resolution, and sentiment analysis, with smooth handoff to your team for the cases that need a person.",
     icon: "support",
   },
   {
@@ -129,7 +148,7 @@ export const INDUSTRIES = [
   {
     title: "Sales & Marketing",
     description:
-      "AI agents for lead gen, email outreach, CRM automation, and market analysis. Go-to-market 10x faster.",
+      "AI agents for lead gen, email outreach, CRM automation, and market analysis, so your team spends more time closing.",
     icon: "sales",
   },
 ];
@@ -145,19 +164,19 @@ export const STEPS = [
     number: 2,
     title: "Design",
     description:
-      "We architect a custom solution with clear milestones, picking the right AI models and frameworks for your specific needs.",
+      "We redesign the workflow around the agent, then pick the right models, frameworks, and guardrails, and decide which actions need human approval.",
   },
   {
     number: 3,
     title: "Deploy",
     description:
-      "We build, test, and launch — with rigorous QA and seamless integration into your existing workflow. No disruptions.",
+      "We build and test against automated evals, run in shadow mode alongside your team, then give the agent more autonomy in stages.",
   },
   {
     number: 4,
     title: "Optimize",
     description:
-      "Post-launch, we monitor, fine-tune, and iterate. Your AI gets smarter and delivers increasing ROI over time.",
+      "Post-launch, we trace every run, track quality and cost, and turn real failures into new tests, so performance keeps improving and stays measurable.",
   },
 ];
 
@@ -165,7 +184,7 @@ export const DIFFERENTIATORS = [
   {
     title: "Agentic-First Approach",
     description:
-      "We don't just build tools — we build autonomous agents that think, plan, and execute complex tasks independently.",
+      "We don't just build tools — we build agents that plan and execute complex tasks, with the guardrails and human oversight that make autonomy safe.",
     icon: "brain",
   },
   {
@@ -185,6 +204,81 @@ export const DIFFERENTIATORS = [
     description:
       "Every solution includes built-in analytics so you can track performance, cost savings, and business impact from day one.",
     icon: "chart",
+  },
+];
+
+export const PRODUCTION_PRACTICES = [
+  {
+    title: "Redesign the Workflow",
+    description:
+      "Adding an agent to a process built for people only saves small tasks. We redesign the work around it and agree the business measure before we build.",
+  },
+  {
+    title: "Earn Autonomy in Stages",
+    description:
+      "Agents start in shadow mode next to your team. They take on more only after the results justify it, with approval gates on high-impact actions.",
+  },
+  {
+    title: "Give Every Agent an Identity",
+    description:
+      "Each agent has its own credentials, the minimum access it needs, and a named owner, so nothing runs unmanaged and every action can be traced.",
+  },
+  {
+    title: "Test With Evals, Not Demos",
+    description:
+      "Automated evals check quality before each release. When something fails in production, it becomes a new test, so the same mistake is caught next time.",
+  },
+  {
+    title: "Trace Runs and Control Cost",
+    description:
+      "We record each model call, tool call, and handoff, and engineer the context each step receives. You can see why an agent acted and what it cost.",
+  },
+  {
+    title: "Build on Open Standards",
+    description:
+      "MCP connects agents to tools and A2A connects agents to each other, so your systems aren't tied to a single vendor as models and frameworks change.",
+  },
+];
+
+export const OUR_PLATFORMS = [
+  {
+    name: "EduVerseJr",
+    url: "https://eduversejr.com/",
+    domain: "eduversejr.com",
+    audience: "Grades 5–12",
+    description:
+      "A hybrid online learning platform that pairs Reva, a 24/7 AI maths teacher, with live 1-to-1 classes from human teachers.",
+    concepts: [
+      { name: "Human + AI teamwork", detail: "AI and human teachers work side by side" },
+      { name: "Agent memory", detail: "Remembers past topics across sessions" },
+      { name: "Guardrails", detail: "Content review with parent-visible alerts" },
+    ],
+  },
+  {
+    name: "Reva AI Teacher",
+    url: "https://revaaiteacher.com/",
+    domain: "revaaiteacher.com",
+    audience: "Grades 5–12 and institutions",
+    description:
+      "An AI tutor for maths, science, and SAT & PSAT prep that teaches by voice while drawing on a live whiteboard.",
+    concepts: [
+      { name: "Voice agent", detail: "Voice conversation with narrated whiteboard steps" },
+      { name: "Multimodal input", detail: "Homework help from a photo or PDF" },
+      { name: "Adaptive behavior", detail: "Practice adapts to weak spots it tracks across sessions" },
+    ],
+  },
+  {
+    name: "Prof. Reva AI",
+    url: "https://www.revaaiprofessor.com/",
+    domain: "revaaiprofessor.com",
+    audience: "Colleges",
+    description:
+      "An AI teacher for colleges, covering 182 course names across 14 subject families, installed on one server per college.",
+    concepts: [
+      { name: "Private deployment", detail: "On-premises by default, under the college's control" },
+      { name: "Agent governance", detail: "Principal, HOD, and professor access controls" },
+      { name: "Long-term memory", detail: "A per-student memory file read before each session" },
+    ],
   },
 ];
 
