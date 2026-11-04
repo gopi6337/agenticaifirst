@@ -54,6 +54,7 @@ AgenticAI First designs, builds, and manages custom AI agent systems tailored to
 
 ## Blog
 
+- [Agent Evals and Observability: How to Know Your AI Agent Is Actually Working](https://agenticaifirst.com/blog/agent-evals-and-observability/): A practical guide to testing agents with evals and seeing what they do with tracing.
 - [Why AI Agent Pilots Stall, and How to Get Yours into Production](https://agenticaifirst.com/blog/why-ai-agent-pilots-stall/): Why agent projects get stuck, and six practices that get them across.
 - [MCP vs A2A: What Each Agent Protocol Does and When You Need It](https://agenticaifirst.com/blog/mcp-vs-a2a-agent-protocols/): A plain-English guide to both protocols and what changed in 2026.
 - [The OWASP Top 10 for Agentic Applications, Explained for Business Leaders](https://agenticaifirst.com/blog/owasp-top-10-agentic-applications-explained/): All ten risks, with a practical control for each.

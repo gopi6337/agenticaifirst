@@ -172,6 +172,12 @@ await generate(
   "Why agentic AI is the future of development"
 );
 await generate(
+  "public/og/blog-agent-evals-and-observability.png",
+  "Blog · Fundamentals", "#3b82f6",
+  "Agent Evals and Observability",
+  "How to know your AI agent is actually working"
+);
+await generate(
   "public/og/blog-why-ai-agent-pilots-stall.png",
   "Blog · Strategy", "#3b82f6",
   "Why AI Agent Pilots Stall",

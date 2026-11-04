@@ -43,7 +43,7 @@ Hero, Services, Industries, How It Works, How We Build Agents You Can Trust (`Pr
 | File | Content |
 |------|---------|
 | `src/lib/constants.ts` | Navigation, 15 services, 8 industries, process steps, differentiators, production practices, platforms, footer links |
-| `src/lib/blog.ts` | 11 blog posts; 1 is hidden with `hidden: true` |
+| `src/lib/blog.ts` | 12 blog posts; 1 is hidden with `hidden: true` |
 | `src/lib/casestudies.ts` | 8 case studies |
 | `src/lib/resources.ts` | 9 docs guides and 10 integration categories |
 | `src/components/sections/FAQSection.tsx` | 12 FAQ entries, also output as JSON-LD |
@@ -54,7 +54,7 @@ The hero's "AI Solutions" stat in `HeroSection.tsx` and the "platforms across ca
 
 ## Adding a Blog Post
 
-1. Add the post at the top of `BLOG_POSTS` in `src/lib/blog.ts`. The list and home page show posts in array order, not by date.
+1. Add the post to `BLOG_POSTS` in `src/lib/blog.ts`. Posts are sorted newest first by date automatically.
 2. Add a share image entry in `scripts/make-og-image.mjs`, then run `node scripts/make-og-image.mjs`. It rebuilds every image, so use `git restore` on any existing images you don't mean to change.
 3. Add the post to `public/sitemap.xml` and `public/llms.txt`.
 

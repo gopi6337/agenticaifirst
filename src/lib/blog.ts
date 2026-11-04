@@ -11,11 +11,130 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "agent-evals-and-observability",
+    title: "Agent Evals and Observability: How to Know Your AI Agent Is Actually Working",
+    excerpt:
+      "An agent can look fine in a demo and still fail quietly in production. Here is a practical guide to testing agents with evals and seeing what they do with tracing.",
+    date: "Jul 4, 2026",
+    readTime: "6 min read",
+    category: "AI Fundamentals",
+    content: `
+## The Problem with "It Seems to Work"
+
+Traditional software usually fails loudly. A function throws an error, a test goes red, and someone gets an alert. AI agents can fail quietly. An agent can return a confident, well-written answer that is wrong, call the right tool with the wrong input, or finish a task the long way at ten times the cost.
+
+Because nothing crashes, these problems can run for weeks before anyone notices. Evals and observability are the two disciplines that close that gap.
+
+- **Evals** test whether the agent does the right thing.
+- **Observability** shows you what the agent actually did.
+
+You need both. Evals without observability tell you something failed, but not why. Observability without evals gives you plenty of data, but no agreed definition of good.
+
+## Why Agents Are Harder to Test
+
+**The same input can produce different results**
+
+Models aren't fully deterministic, so a single passing run doesn't prove much. A test that passes once may fail on the next attempt.
+
+**There are many steps**
+
+An agent may plan, search, call several tools, and revise its work before it answers. A mistake in step two can look like a bad answer in step six.
+
+**Small changes can have wide effects**
+
+A new model version, a reworded prompt, or a changed tool description can improve one type of task and quietly break another.
+
+**Good answers aren't always easy to define**
+
+Checking a sum is easy. Judging whether a support reply was accurate, helpful, and on policy takes more work.
+
+## Building Your First Eval Set
+
+You don't need a large framework to begin. Start small and use real work.
+
+**Collect 20 to 50 real cases**
+
+Pull them from actual tickets, documents, or conversations. Include the common cases, the awkward ones, and a few that should make the agent stop and ask for help.
+
+**Define what good looks like**
+
+For each case, write down what the right outcome is. That could be a correct answer, the right tool being called, or a correct decision to escalate to a person.
+
+**Use the simplest check that works**
+
+- **Code checks** suit anything exact, such as a valid format, the correct tool, or a required field.
+- **Model-graded checks** use a second model with a clear rubric for judgment calls, such as tone or completeness.
+- **Human review** is the reference point. Regularly compare a sample against your automated checks to confirm that they agree with your experts.
+
+**Run it before every change**
+
+Run the set whenever a prompt, model, tool, or data source changes, and run important cases several times to account for variation. Compare the results with the last version, and don't ship a change that breaks something important.
+
+**Grow it from real failures**
+
+Whenever something goes wrong in production, add it to the set. Over time, your eval set becomes a record of everything your agent has had to learn.
+
+## What to Measure
+
+Accuracy alone won't tell you enough. For most agents, we would track:
+
+- **Task success:** did it complete the job correctly from start to finish?
+- **Tool accuracy:** did it choose the right tools and pass the right inputs?
+- **Escalation quality:** did it hand off to a person when it should have, and only then?
+- **Cost per completed task:** including retries and failed attempts
+- **Latency:** how long a person or a process has to wait
+- **Business outcome:** the measure the project exists to improve
+
+## Observability: Seeing Inside a Run
+
+The core tool is the trace, a structured record of a single run. A useful trace captures each model call, tool call, memory read and write, and handoff between agents, along with the inputs, outputs, timing, and cost of each step.
+
+With traces, you can answer questions that are otherwise guesswork:
+
+- What information did the agent have when it made this decision?
+- Which tool returned the bad data?
+- Why did this task cost five times more than usual?
+- Where is the time going?
+
+**Add tracing from the first run**
+
+It is much easier to build in early than to add later. Tools such as LangSmith and Langfuse are built for this, and OpenTelemetry offers an open standard for carrying traces across systems.
+
+**Protect what you record**
+
+Traces can contain customer data and other sensitive information. Decide what to mask, who can view traces, and how long to keep them.
+
+## Many Failures Are Context Failures
+
+When agents fail, the model often isn't the real problem. It may have been given the wrong information, too much information, or too many tools to choose from. That is why context engineering, deciding exactly what enters the model's limited context at each step, has become such an important skill.
+
+Traces make this visible, because you can see exactly what the model received at the moment it went wrong. The fix is frequently better retrieval or a shorter tool list, not a more expensive model.
+
+## Close the Loop
+
+Evals and observability are most useful when they feed each other:
+
+- **Monitor** production traces for failures, unusual cost, and user complaints.
+- **Investigate** the trace to find the real cause.
+- **Add** the case to your eval set.
+- **Fix** the problem and run the evals to confirm the fix without breaking anything else.
+- **Release** in stages and keep watching.
+
+Each pass through this loop makes the agent more reliable. Agents don't get better simply by running in production. They get better because a team keeps measuring and improving them.
+
+## Where to Start
+
+Pick one agent. Add tracing, collect 20 real cases, and agree what good looks like. You could have a basic version of this working quickly, and it will tell you more than any demo.
+
+If you would like help setting up evals and observability for your agents, get in touch through our contact form.
+    `,
+  },
+  {
     slug: "why-ai-agent-pilots-stall",
     title: "Why AI Agent Pilots Stall, and How to Get Yours into Production",
     excerpt:
       "Most enterprises are adopting agentic AI, but few have it running at scale. Here is why pilots get stuck between demo and production, and six practices that get them across.",
-    date: "Nov 4, 2026",
+    date: "Aug 4, 2026",
     readTime: "6 min read",
     category: "Strategy",
     content: `
@@ -108,7 +227,7 @@ A stalled pilot is rarely wasted. It usually tells you which data, integrations,
     title: "MCP vs A2A: What Each Agent Protocol Does and When You Need It",
     excerpt:
       "MCP connects agents to tools and data. A2A connects agents to each other. Here is a plain-English guide to both, what changed in 2026, and how to decide what your project needs.",
-    date: "Nov 4, 2026",
+    date: "Oct 4, 2026",
     readTime: "6 min read",
     category: "AI Fundamentals",
     content: `
@@ -206,7 +325,7 @@ List the systems your first agent actually needs, and decide which of them shoul
     title: "The OWASP Top 10 for Agentic Applications, Explained for Business Leaders",
     excerpt:
       "When AI can take actions, the security risks change. Here is a plain-English guide to all ten risks in the OWASP agentic list, with a practical control for each one.",
-    date: "Nov 4, 2026",
+    date: "Sep 4, 2026",
     readTime: "7 min read",
     category: "Security",
     content: `
@@ -384,7 +503,7 @@ These rules and the guidance around them are still developing, so check the curr
     title: "24/7 AI Multi-Agent Healthcare Monitoring: Real-Time Alerts for Lab, MRI, X-Ray, and ICU",
     excerpt:
       "What if every lab result, MRI scan, X-ray report, and ICU parameter was watched by an AI agent the moment it was generated — and the right doctor was alerted within seconds when something was wrong? Here is the architecture making it real.",
-    date: "Oct 9, 2026",
+    date: "Jun 4, 2026",
     readTime: "8 min read",
     category: "Healthcare AI",
     content: `
@@ -527,7 +646,7 @@ If your hospital is evaluating AI solutions for patient safety and clinical work
     title: "What Are AI Agents and Why Your Business Needs Them",
     excerpt:
       "AI agents are autonomous systems that think, plan, and execute tasks independently. Discover how they're revolutionizing business operations and why 2026 is the year to adopt them.",
-    date: "Sep 9, 2026",
+    date: "Mar 4, 2026",
     readTime: "5 min read",
     category: "AI Fundamentals",
     content: `
@@ -582,7 +701,7 @@ The businesses that thrive in the next decade will be the ones that embrace AI a
     title: "5 Ways Agentic AI Is Transforming Customer Support",
     excerpt:
       "From instant resolution to predictive support, discover how AI agents are redefining customer experience and cutting support costs by up to 60%.",
-    date: "Aug 9, 2026",
+    date: "Feb 4, 2026",
     readTime: "4 min read",
     category: "Use Cases",
     content: `
@@ -638,7 +757,7 @@ The future of customer support isn't more agents — it's smarter agents.
     title: "How Claude Code Migrated a 15-Year-Old Hospital Management System to a Modern Stack",
     excerpt:
       "A legacy Java monolith with no documentation, an Oracle database nobody fully understood, and a team that inherited code written by people who left years ago. Here is how Claude Code made the migration possible.",
-    date: "Jul 9, 2026",
+    date: "May 4, 2026",
     readTime: "8 min read",
     category: "Case Study",
     content: `
@@ -771,7 +890,7 @@ If your organisation is running a system nobody wants to touch, that is exactly 
     title: "Claude Code vs GitHub Copilot: Why Agentic AI Is the Future of Software Development",
     excerpt:
       "GitHub Copilot autocompletes lines. Claude Code plans, writes, tests, and ships entire features autonomously. Here's the difference — and why it matters for your development team in 2026.",
-    date: "Jun 9, 2026",
+    date: "Apr 4, 2026",
     readTime: "7 min read",
     category: "Developer Tools",
     content: `
@@ -1050,7 +1169,7 @@ If you are building in EdTech and thinking about how AI agents can power your le
     title: "How to Choose the Right AI Partner for Your Business",
     excerpt:
       "Not all AI companies are created equal. Learn what to look for in an AI development partner and the red flags to avoid.",
-    date: "May 9, 2026",
+    date: "Jan 4, 2026",
     readTime: "4 min read",
     category: "Strategy",
     content: `
@@ -1123,4 +1242,4 @@ The right AI partner feels like an extension of your team — they understand yo
 Your AI journey is too important to leave to chance.
     `,
   },
-];
+].sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
