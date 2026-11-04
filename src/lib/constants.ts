@@ -268,12 +268,12 @@ export const OUR_PLATFORMS = [
     ],
   },
   {
-    name: "Prof. Reva AI",
+    name: "Reva AI Prof",
     url: "https://www.revaaiprofessor.com/",
     domain: "revaaiprofessor.com",
     audience: "Colleges",
     description:
-      "An AI teacher for colleges, covering 182 course names across 14 subject families, installed on one server per college.",
+      "An AI professor for colleges, covering 182 course names across 14 subject families, installed on one server per college.",
     concepts: [
       { name: "Private deployment", detail: "On-premises by default, under the college's control" },
       { name: "Agent governance", detail: "Principal, HOD, and professor access controls" },

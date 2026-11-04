@@ -15,7 +15,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "24/7 AI Multi-Agent Healthcare Monitoring: Real-Time Alerts for Lab, MRI, X-Ray, and ICU",
     excerpt:
       "What if every lab result, MRI scan, X-ray report, and ICU parameter was watched by an AI agent the moment it was generated — and the right doctor was alerted within seconds when something was wrong? Here is the architecture making it real.",
-    date: "Apr 1, 2026",
+    date: "Oct 9, 2026",
     readTime: "8 min read",
     category: "Healthcare AI",
     content: `
@@ -158,7 +158,7 @@ If your hospital is evaluating AI solutions for patient safety and clinical work
     title: "What Are AI Agents and Why Your Business Needs Them",
     excerpt:
       "AI agents are autonomous systems that think, plan, and execute tasks independently. Discover how they're revolutionizing business operations and why 2026 is the year to adopt them.",
-    date: "Feb 11, 2026",
+    date: "Sep 9, 2026",
     readTime: "5 min read",
     category: "AI Fundamentals",
     content: `
@@ -213,7 +213,7 @@ The businesses that thrive in the next decade will be the ones that embrace AI a
     title: "5 Ways Agentic AI Is Transforming Customer Support",
     excerpt:
       "From instant resolution to predictive support, discover how AI agents are redefining customer experience and cutting support costs by up to 60%.",
-    date: "Feb 10, 2026",
+    date: "Aug 9, 2026",
     readTime: "4 min read",
     category: "Use Cases",
     content: `
@@ -269,7 +269,7 @@ The future of customer support isn't more agents — it's smarter agents.
     title: "How Claude Code Migrated a 15-Year-Old Hospital Management System to a Modern Stack",
     excerpt:
       "A legacy Java monolith with no documentation, an Oracle database nobody fully understood, and a team that inherited code written by people who left years ago. Here is how Claude Code made the migration possible.",
-    date: "Mar 9, 2026",
+    date: "Jul 9, 2026",
     readTime: "8 min read",
     category: "Case Study",
     content: `
@@ -402,7 +402,7 @@ If your organisation is running a system nobody wants to touch, that is exactly 
     title: "Claude Code vs GitHub Copilot: Why Agentic AI Is the Future of Software Development",
     excerpt:
       "GitHub Copilot autocompletes lines. Claude Code plans, writes, tests, and ships entire features autonomously. Here's the difference — and why it matters for your development team in 2026.",
-    date: "Mar 9, 2026",
+    date: "Jun 9, 2026",
     readTime: "7 min read",
     category: "Developer Tools",
     content: `
@@ -681,7 +681,7 @@ If you are building in EdTech and thinking about how AI agents can power your le
     title: "How to Choose the Right AI Partner for Your Business",
     excerpt:
       "Not all AI companies are created equal. Learn what to look for in an AI development partner and the red flags to avoid.",
-    date: "Feb 9, 2026",
+    date: "May 9, 2026",
     readTime: "4 min read",
     category: "Strategy",
     content: `

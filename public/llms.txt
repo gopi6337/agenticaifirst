@@ -28,7 +28,7 @@ AgenticAI First designs, builds, and manages custom AI agent systems tailored to
 
 - [EduVerseJr](https://eduversejr.com/): Our education startup. Hybrid online learning platform for Grades 5–12 pairing an AI maths teacher with live human teachers.
 - [Reva AI Teacher](https://revaaiteacher.com/): AI tutor for maths, science, and SAT & PSAT prep, Grades 5–12, with voice and a live whiteboard.
-- [Prof. Reva AI](https://www.revaaiprofessor.com/): AI teacher for colleges, installed on one server per college.
+- [Reva AI Prof](https://www.revaaiprofessor.com/): AI professor for colleges, installed on one server per college.
 
 ## Industries Served
 
