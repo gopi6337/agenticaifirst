@@ -9,6 +9,8 @@ const CATEGORY_COLORS: Record<string, string> = {
   "AI Fundamentals": "bg-blue-500/10 text-blue-400 border-blue-500/20",
   "Use Cases": "bg-green-500/10 text-green-400 border-green-500/20",
   Strategy: "bg-purple-500/10 text-purple-400 border-purple-500/20",
+  Security: "bg-orange-500/10 text-orange-400 border-orange-500/20",
+  Compliance: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
 };
 
 export default function BlogSection() {
@@ -24,7 +26,7 @@ export default function BlogSection() {
           description="Expert perspectives on AI agents, industry trends, and practical guides to help your business thrive."
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {BLOG_POSTS.filter((p) => !p.hidden).map((post) => (
+          {BLOG_POSTS.filter((p) => !p.hidden).slice(0, 6).map((post) => (
             <Link
               key={post.slug}
               href={`/blog/${post.slug}/`}
@@ -52,6 +54,11 @@ export default function BlogSection() {
               </div>
             </Link>
           ))}
+        </div>
+        <div className="text-center mt-8">
+          <Link href="/blog/" className="text-purple-vivid font-medium hover:underline">
+            View all articles →
+          </Link>
         </div>
       </div>
     </section>

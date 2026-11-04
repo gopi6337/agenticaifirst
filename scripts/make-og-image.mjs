@@ -153,6 +153,49 @@ await generate(
   "What to look for in an AI company"
 );
 
+await generate(
+  "public/og/blog-ai-multi-agent-healthcare-monitoring-24x7.png",
+  "Blog · Healthcare AI", "#3b82f6",
+  "24/7 AI Healthcare Monitoring",
+  "Real-time alerts for lab, MRI, X-ray, and ICU"
+);
+await generate(
+  "public/og/blog-claude-code-legacy-hospital-system-migration.png",
+  "Blog · Case Study", "#3b82f6",
+  "Migrating a Legacy Hospital System",
+  "How Claude Code modernized a 15-year-old stack"
+);
+await generate(
+  "public/og/blog-ai-coding-assistants-agentic-development.png",
+  "Blog · Dev Tools", "#3b82f6",
+  "Claude Code vs GitHub Copilot",
+  "Why agentic AI is the future of development"
+);
+await generate(
+  "public/og/blog-why-ai-agent-pilots-stall.png",
+  "Blog · Strategy", "#3b82f6",
+  "Why AI Agent Pilots Stall",
+  "Six practices that get agents into production"
+);
+await generate(
+  "public/og/blog-mcp-vs-a2a-agent-protocols.png",
+  "Blog · Protocols", "#3b82f6",
+  "MCP vs A2A",
+  "What each agent protocol does and when to use it"
+);
+await generate(
+  "public/og/blog-owasp-top-10-agentic-applications-explained.png",
+  "Blog · Security", "#3b82f6",
+  "OWASP Agentic Top 10",
+  "All ten risks explained in plain English"
+);
+await generate(
+  "public/og/blog-eu-ai-act-ai-agents-what-to-know.png",
+  "Blog · Compliance", "#3b82f6",
+  "The EU AI Act and AI Agents",
+  "What applies now and what comes next"
+);
+
 // ── Case studies ──────────────────────────────────────────────────────────────
 await generate(
   "public/og/cs-it-services-devops-automation.png",

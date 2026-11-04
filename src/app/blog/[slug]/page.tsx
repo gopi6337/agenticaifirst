@@ -11,7 +11,7 @@ function renderInlineBold(text: string): React.ReactNode {
   if (parts.length === 1) return text;
   return parts.map((part, i) =>
     part.startsWith('**') && part.endsWith('**')
-      ? <strong key={i}>{part.slice(2, -2)}</strong>
+      ? <strong key={i} className="font-semibold text-white">{part.slice(2, -2)}</strong>
       : part
   );
 }
@@ -132,19 +132,19 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           {post.title}
         </h1>
 
-        <article className="prose prose-invert prose-slate max-w-none prose-headings:text-white prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-p:text-slate-300 prose-p:leading-relaxed prose-strong:text-white prose-li:text-slate-300 prose-ul:text-slate-300 whitespace-pre-line">
+        <article className="text-slate-300 text-lg leading-relaxed">
           {post.content.split('\n').map((line, i) => {
             const trimmed = line.trim();
             if (!trimmed) return null;
             if (trimmed.startsWith('## '))
-              return <h2 key={i}>{trimmed.slice(3)}</h2>;
+              return <h2 key={i} className="text-2xl font-bold text-white mt-10 mb-4">{trimmed.slice(3)}</h2>;
             if (trimmed.startsWith('**') && trimmed.endsWith('**'))
-              return <p key={i}><strong>{trimmed.slice(2, -2)}</strong></p>;
+              return <p key={i} className="mt-6 mb-2"><strong className="font-semibold text-white">{trimmed.slice(2, -2)}</strong></p>;
             if (trimmed.startsWith('- '))
-              return <p key={i} className="pl-4 text-slate-300">• {renderInlineBold(trimmed.slice(2))}</p>;
+              return <p key={i} className="pl-4 mb-2">• {renderInlineBold(trimmed.slice(2))}</p>;
             if (trimmed.startsWith('❌') || trimmed.startsWith('✅'))
-              return <p key={i} className="pl-4 text-slate-300">{trimmed}</p>;
-            return <p key={i}>{renderInlineBold(trimmed)}</p>;
+              return <p key={i} className="pl-4 mb-2">{trimmed}</p>;
+            return <p key={i} className="mb-4">{renderInlineBold(trimmed)}</p>;
           })}
         </article>
 

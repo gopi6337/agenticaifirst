@@ -54,6 +54,10 @@ AgenticAI First designs, builds, and manages custom AI agent systems tailored to
 
 ## Blog
 
+- [Why AI Agent Pilots Stall, and How to Get Yours into Production](https://agenticaifirst.com/blog/why-ai-agent-pilots-stall/): Why agent projects get stuck, and six practices that get them across.
+- [MCP vs A2A: What Each Agent Protocol Does and When You Need It](https://agenticaifirst.com/blog/mcp-vs-a2a-agent-protocols/): A plain-English guide to both protocols and what changed in 2026.
+- [The OWASP Top 10 for Agentic Applications, Explained for Business Leaders](https://agenticaifirst.com/blog/owasp-top-10-agentic-applications-explained/): All ten risks, with a practical control for each.
+- [The EU AI Act and AI Agents: What Applies Now and What Comes Next](https://agenticaifirst.com/blog/eu-ai-act-ai-agents-what-to-know/): The updated timeline and what it means for AI agents.
 - [24/7 AI Multi-Agent Healthcare Monitoring](https://agenticaifirst.com/blog/ai-multi-agent-healthcare-monitoring-24x7/): Real-time alerts for lab, MRI, X-ray, and ICU.
 - [How Claude Code Migrated a 15-Year-Old Hospital Management System](https://agenticaifirst.com/blog/claude-code-legacy-hospital-system-migration/): Using agentic coding for legacy modernization.
 - [Claude Code vs GitHub Copilot](https://agenticaifirst.com/blog/ai-coding-assistants-agentic-development/): Why agentic AI is the future of software development.

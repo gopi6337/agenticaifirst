@@ -11,6 +11,375 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "why-ai-agent-pilots-stall",
+    title: "Why AI Agent Pilots Stall, and How to Get Yours into Production",
+    excerpt:
+      "Most enterprises are adopting agentic AI, but few have it running at scale. Here is why pilots get stuck between demo and production, and six practices that get them across.",
+    date: "Nov 4, 2026",
+    readTime: "6 min read",
+    category: "Strategy",
+    content: `
+## The Demo Worked. Now What?
+
+Building an impressive agent demo has never been easier. A small team can connect a model to a few tools and show something remarkable in days. Then the project meets real data, real users, a security review, and a finance team asking what it is worth. That is where many agent projects stop.
+
+The numbers show the gap. In June 2026, Forrester reported that roughly three-quarters of enterprise leaders say they are adopting agentic AI, but only a small minority have it running in meaningful production. Gartner predicted in 2025 that over 40% of agentic AI projects will be canceled by the end of 2027, citing escalating costs, unclear business value, and inadequate risk controls.
+
+Better models alone will not close this gap. The blockers are mostly in how the work is organized around the model.
+
+## Why Pilots Get Stuck
+
+**1. The business case is vague**
+
+"Save time" does not survive a budget review. Forrester found that ROI uncertainty keeps many companies in pilot mode, because they can't justify production beyond narrow efficiency gains. If nobody recorded how the process performed before the agent arrived, nobody can prove what changed.
+
+**2. The agent was added to an old process**
+
+Dropping an agent into a workflow designed around human hand-offs and approval queues saves a few tasks, but the queues remain. The larger gains come from redesigning the work around what the agent can do.
+
+**3. Quality is judged by demos**
+
+An agent that handles ten hand-picked examples can still fail on the eleventh. Without automated tests, each new prompt or model is a gamble, and teams become afraid to change anything.
+
+**4. Nobody can explain what happened**
+
+When an agent makes a bad decision in production, the team needs to see what it was told, which tools it called, and what those tools returned. Without traces, debugging becomes guesswork, and auditors have nothing to review.
+
+**5. Governance exists only on paper**
+
+Policy documents can't control a system that takes actions by itself. Forrester reports that more than half of enterprises see agent sprawl even after adopting the NIST AI Risk Management Framework. Agents multiply, overlap, and hold access that nobody remembers granting.
+
+**6. Costs surprise everyone**
+
+A pilot with a few users hides what thousands of long-running tasks will cost. When retries and oversized context are multiplied by real volume, a promising business case can quickly fall apart.
+
+## Six Practices That Get Agents into Production
+
+**Agree the measure before you build**
+
+Pick one business measure, such as cost per transaction, resolution rate, or processing time, and record today's baseline. Decide in advance what result would justify scaling, and what would justify stopping.
+
+**Redesign the workflow**
+
+Map the work as it should run with an agent in it. Ask which steps are no longer needed, where people add the most judgment, and what the agent should do when it is unsure.
+
+**Earn autonomy in stages**
+
+Start in shadow mode, where the agent proposes actions and people decide. Then let it act on low-risk cases, and keep approval gates on anything with high impact, such as payments, deletions, or external messages. Autonomy should be something the results justify.
+
+**Test with evals**
+
+Build a set of test cases from real work and run it before every release. When something fails in production, add it to the set so the same mistake gets caught next time.
+
+**Trace every run and watch the cost**
+
+Record each model call, tool call, and handoff from the very first run. Track cost per completed task, not just total spend. Much of the cost and quality comes down to context engineering: giving each step the information it needs and nothing more.
+
+**Treat every agent as a governed identity**
+
+Give each agent its own credentials, the minimum access it needs, and a named owner. Keep a register of what is running and why. If an agent has no owner, it shouldn't be running.
+
+## What This Looks Like in Practice
+
+We apply these ideas on the education platforms we built under EduVerseJr. EduVerseJr pairs its AI maths teacher with a content review pipeline and alerts that parents can see. Reva AI Prof gives principals, heads of department, and professors different levels of control, and runs on one server per college, on-premises by default.
+
+Those controls are part of the product design, because a school or college has to trust the system before it will rely on it. The same is true in any business.
+
+## A Quick Self-Check
+
+If you have an agent stuck in pilot, ask your team these questions:
+
+- What measure will this agent improve, and what is the baseline today?
+- Which parts of the workflow did we change, rather than just automate?
+- Can we run a test suite before the next release?
+- Can we show exactly why the agent took a specific action last Tuesday?
+- What does one completed task cost, and what happens to that at full volume?
+- Who owns this agent, and what can it access?
+
+Any question you can't answer is a good place to start.
+
+## Getting Unstuck
+
+A stalled pilot is rarely wasted. It usually tells you which data, integrations, and decisions matter most. If yours has stalled, we can help you work out what's blocking it and what it would take to move it into production. Get in touch through our contact form.
+    `,
+  },
+  {
+    slug: "mcp-vs-a2a-agent-protocols",
+    title: "MCP vs A2A: What Each Agent Protocol Does and When You Need It",
+    excerpt:
+      "MCP connects agents to tools and data. A2A connects agents to each other. Here is a plain-English guide to both, what changed in 2026, and how to decide what your project needs.",
+    date: "Nov 4, 2026",
+    readTime: "6 min read",
+    category: "AI Fundamentals",
+    content: `
+## Two Protocols, Two Different Jobs
+
+If you are planning an AI agent project, you will soon hear about MCP and A2A. They are often presented as rivals, but they solve different problems, and many larger systems will use both.
+
+The short version:
+
+- **Model Context Protocol (MCP)** connects an agent to tools and data.
+- **Agent2Agent (A2A)** connects an agent to other agents.
+
+The Linux Foundation describes A2A as complementary to MCP: A2A covers how agents coordinate across organizational boundaries, while MCP covers how agents connect to tools and data.
+
+Think of a new employee. MCP is their access to the CRM, the document library, and the ticketing system. A2A is how they ask a colleague in another department to handle part of a job.
+
+## What MCP Does
+
+Without a standard, every combination of agent and system needs its own integration. MCP replaces that with one common way for a system to tell an agent what it offers, and for the agent to use it.
+
+An MCP server wraps a system such as a database, a CRM, or an internal API, and offers its tools and data to agents. Any compatible client can then use that server, so the same integration can work with different agents and models.
+
+**Use MCP when:**
+
+- An agent needs to read from or act on your business systems
+- You want integrations you can reuse across agents and vendors
+- You want one consistent place to control access to tools
+
+## What Changed in MCP This Year
+
+The current MCP specification is the 2026-07-28 revision, and it is a significant update:
+
+- **Stateless by design.** The initialize handshake and protocol-level sessions are gone. Each request carries what the server needs, which makes MCP easier to run behind ordinary load balancers.
+- **Server discovery.** A new server/discover method lets a client ask what versions and capabilities a server supports.
+- **Long-running work.** Tasks moved into an official extension, so clients can check on long operations and send input while they run.
+- **A clear deprecation policy.** Roots, Sampling, and Logging are deprecated. Deprecated features generally stay in the specification for at least twelve months before they can be removed.
+
+If you built MCP servers on an earlier revision, plan time to review them against this release.
+
+## What A2A Does
+
+As companies deploy more agents, those agents increasingly come from different vendors and frameworks. A support agent from one platform may need a logistics agent from another to resolve an order. A2A gives them a common way to find each other, communicate, and work together, without either one exposing its internal workings.
+
+Google introduced A2A in 2025 and donated it to the Linux Foundation that June. By April 2026, the Linux Foundation reported more than 150 supporting organizations. It also reported integration in Azure AI Foundry, Copilot Studio, and Amazon Bedrock AgentCore Runtime.
+
+Version 1.0 added features aimed at enterprise use, including Signed Agent Cards, which let an agent verify another agent's identity cryptographically, along with multi-tenancy support and modernized security flows.
+
+**Use A2A when:**
+
+- Agents from different teams, vendors, or companies need to delegate work
+- You can't, or don't want to, merge everything into one framework
+- Agents need to work together across organizational boundaries
+
+## How to Decide
+
+**One agent using your internal systems**
+
+Start with MCP. You probably don't need A2A yet.
+
+**Several agents built by one team on one framework**
+
+Use your framework's own orchestration to coordinate them, and MCP for their tools. A2A adds little if every agent already lives in the same system.
+
+**Agents crossing teams, vendors, or companies**
+
+Use MCP for each agent's tools and A2A between the agents.
+
+Most businesses should start with the first case. Add A2A when you have a real need for agents to work across boundaries, not because it is on a checklist.
+
+## Practical Advice for Either Protocol
+
+**Keep tool lists short**
+
+More tools aren't always better. Too many can overload an agent's context and increase errors, so give each agent only what it needs and describe each tool clearly.
+
+**Treat connections as a security boundary**
+
+Open standards make it easy to connect things, including things that shouldn't be connected. Vet third-party MCP servers before you use them, use narrowly scoped permissions, and require human approval for high-impact actions. Our guide to the OWASP Top 10 for Agentic Applications covers these risks in more detail.
+
+**Don't let a protocol become your architecture**
+
+Protocols connect the parts of a system, but they won't decide what your agent should do, how to test it, or when a person should step in. Those decisions matter more to whether a project succeeds.
+
+**Expect change**
+
+Both protocols are moving quickly. Check the current versions when you build, keep integrations in one place, and track deprecations so that upgrades don't catch you out.
+
+## Where to Start
+
+List the systems your first agent actually needs, and decide which of them should be read-only. That short list is your first set of MCP servers. If you would like help designing it, or connecting agents across teams and vendors, get in touch through our contact form.
+    `,
+  },
+  {
+    slug: "owasp-top-10-agentic-applications-explained",
+    title: "The OWASP Top 10 for Agentic Applications, Explained for Business Leaders",
+    excerpt:
+      "When AI can take actions, the security risks change. Here is a plain-English guide to all ten risks in the OWASP agentic list, with a practical control for each one.",
+    date: "Nov 4, 2026",
+    readTime: "7 min read",
+    category: "Security",
+    content: `
+## Why Agents Need Their Own Security List
+
+A chatbot that gives a wrong answer is a problem. An agent that acts on a wrong answer, by sending the email, changing the record, or moving the money, is a much bigger one.
+
+That is why the OWASP GenAI Security Project published the OWASP Top 10 for Agentic Applications in December 2025. It was developed with input from more than 100 experts, and it extends OWASP's earlier list of risks for LLM applications rather than replacing it.
+
+The list was written for security teams, but the decisions it raises also belong to the people who own the business process. Here are all ten risks in plain English, each with one control to start from.
+
+## The Ten Risks
+
+**ASI01: Agent Goal Hijack**
+
+An attacker changes what the agent is trying to do. This often happens indirectly, through instructions hidden in a document, email, or web page the agent reads.
+
+Start here: treat all outside content as untrusted data, and require approval for high-impact actions.
+
+**ASI02: Tool Misuse & Exploitation**
+
+The agent uses a tool it is allowed to use, but in an unsafe way. It might pass unchecked input into a command, or chain tools together in a way nobody intended.
+
+Start here: give each agent only the tools it needs, and validate what goes into them.
+
+**ASI03: Identity & Privilege Abuse**
+
+Agents often inherit credentials from a person or a service account, and attackers can exploit that borrowed trust to go beyond what the owner intended.
+
+Start here: give each agent its own short-lived credentials with the minimum access it needs.
+
+**ASI04: Agentic Supply Chain Vulnerabilities**
+
+Models, plugins, and tools loaded from third parties can be malicious, compromised, or tampered with.
+
+Start here: keep an approved list of components, pin their versions, and review changes before they reach production.
+
+**ASI05: Unexpected Code Execution**
+
+Code that an agent writes or receives runs on a host in ways nobody intended, which can lead to a compromised system.
+
+Start here: run agent-generated code in an isolated sandbox with no access to production credentials.
+
+**ASI06: Memory & Context Poisoning**
+
+Corrupted long-term memory or search indexes can skew an agent's decisions long after the original attack. One bad entry can affect many future sessions.
+
+Start here: control what can be written to memory, record where each entry came from, and clear out stale data.
+
+**ASI07: Insecure Inter-Agent Communication**
+
+When authentication, encryption, or validation is weak, attackers can intercept, fake, replay, or alter messages between agents.
+
+Start here: authenticate and encrypt agent-to-agent traffic, and never assume another agent's message is safe.
+
+**ASI08: Cascading Failures**
+
+One fault spreads across connected agents and services, and grows into a wider outage or breach. Because agents act quickly, this can happen before anyone notices.
+
+Start here: add rate limits and circuit breakers, and make sure you can stop one agent without stopping everything.
+
+**ASI09: Human-Agent Trust Exploitation**
+
+Agents sound confident and authoritative. Attackers can use that to persuade people to share credentials or approve a transfer, and an approval step doesn't help if people approve whatever the agent suggests.
+
+Start here: show reviewers the evidence behind each request, and train them to question it.
+
+**ASI10: Rogue Agents**
+
+An agent drifts from its intended purpose or authorized scope through compromise, misalignment, or unexpected behavior. Each action may look fine alone, while the overall pattern is harmful.
+
+Start here: monitor behavior over time, not just single actions, and rehearse how to shut an agent down.
+
+## Where to Begin
+
+Ten risks can feel like a lot, but a few controls address several of them at once:
+
+- **Least privilege.** Limit what each agent can access, so that any successful attack can do less damage.
+- **Human approval.** Put a person in front of the actions you couldn't easily reverse.
+- **Treat inputs as untrusted.** This applies to documents, web pages, tool results, memory, and messages from other agents.
+- **Full tracing.** Log every action, so that you can detect problems and investigate them afterward.
+- **A tested shutdown.** Know exactly who can stop an agent and how, and practice it before you need it.
+
+## Questions to Ask Before Go-Live
+
+- What is the worst thing this agent could do with the access it has today?
+- What happens if a document it reads contains hidden instructions?
+- Which actions need human approval, and could the reviewer make a real decision with what they are shown?
+- Can we reconstruct exactly what the agent did and why?
+- Who can shut it down, and how quickly?
+
+If those questions are hard to answer, that is useful to know before launch.
+
+## Security Is What Lets You Scale
+
+Forrester reported in 2026 that 49% of security decision-makers named agentic AI as a concern. Their concern is reasonable, but it doesn't have to stop a project. Controls like these are what give a business the confidence to give an agent more responsibility.
+
+We offer security audits for AI projects based on this framework. If you have an agent heading toward production, get in touch through our contact form.
+    `,
+  },
+  {
+    slug: "eu-ai-act-ai-agents-what-to-know",
+    title: "The EU AI Act and AI Agents: What Applies Now and What Comes Next",
+    excerpt:
+      "Transparency duties have applied since August 2026, and high-risk rules were pushed back to December 2027. Here is what the updated timeline means if your AI agents reach people in the EU.",
+    date: "Nov 4, 2026",
+    readTime: "5 min read",
+    category: "Compliance",
+    content: `
+## The Timeline Has Changed
+
+If you last looked at the EU AI Act a year ago, your dates are probably out of date. The AI Omnibus, published in the EU's Official Journal on 24 July 2026, pushed back the main high-risk deadlines. However, some duties have already started.
+
+This article is general information, not legal advice. What applies to you depends on your systems and your role, so confirm the details with legal counsel.
+
+## The Key Dates
+
+- **2 February 2025:** Bans on prohibited AI practices began to apply.
+- **2 August 2025:** Obligations for general-purpose AI models began to apply.
+- **2 August 2026:** Most Article 50 transparency duties began to apply.
+- **2 December 2026:** The machine-readable marking duty applies to generative AI systems that were already on the market.
+- **2 December 2027:** Rules for stand-alone high-risk systems under Annex III begin to apply, moved from August 2026.
+- **2 August 2028:** Rules for high-risk AI built into regulated products under Annex I begin to apply, moved from August 2027.
+
+## Does It Apply to Your Agents?
+
+The Act has no separate category for AI agents. Your obligations depend on what the system does, how it is used, and your role, such as whether you provide the system or deploy it.
+
+Being based outside the EU doesn't automatically put you out of scope. The Act can reach companies elsewhere if they place AI systems on the EU market, or if a system's output is used in the EU. If you have EU customers, employees, or users, it is worth checking.
+
+## What Applies Now: Transparency
+
+The duty most relevant to many agents is simple. Systems that interact directly with people, such as chatbots and voice assistants, must be designed so that people know they are dealing with an AI, unless that is obvious from the circumstances.
+
+The European Commission adopted non-binding guidelines on these duties on 20 July 2026. Law firm summaries put the maximum fine for breaching them at up to €15 million or 3% of worldwide annual turnover.
+
+**In practice, that means reviewing:**
+
+- Support chatbots and voice agents, including how the agent introduces itself at the start of a call
+- Sales and outreach agents that message people directly
+- Any agent that generates content, since marking and labeling rules may also apply
+
+## What Comes Next: High-Risk Uses
+
+Whether an agent counts as high-risk depends on its use. Annex III includes certain uses in areas such as recruitment, credit scoring, and education, so an agent that screens job applicants needs closer attention than one that schedules meetings.
+
+High-risk systems will have to meet requirements that include risk management, data governance, technical documentation, record-keeping, human oversight, and accuracy and robustness.
+
+## Why You Shouldn't Wait Until 2027
+
+The extra time is useful, but these requirements are slow to add at the end of a project. Record-keeping and human oversight in particular shape how an agent is designed. Much of the work also overlaps with what it takes to run agents reliably anyway:
+
+- **Tracing** provides the basis for your records.
+- **Approval gates** support human oversight.
+- **Evals** give you evidence of accuracy over time.
+- **An agent register** shows what is running, who owns it, and what it does.
+
+So even if the Act never applies to you, these practices are still worth having.
+
+## Five Steps to Take Now
+
+- **List your AI systems and agents,** including those embedded in vendor products.
+- **Mark where each one touches the EU,** through users, customers, employees, or output.
+- **Check that people are told** when they are dealing with an AI.
+- **Flag possible high-risk uses,** especially in hiring, credit, and education, and get legal advice on them.
+- **Start keeping records and adding oversight** in new agent projects, rather than retrofitting them later.
+
+## Keep Checking
+
+These rules and the guidance around them are still developing, so check the current position with your legal team before you make decisions. If you would like help with the technical side, such as tracing, approval gates, and agent inventories, get in touch through our contact form.
+    `,
+  },
+  {
     slug: "ai-multi-agent-healthcare-monitoring-24x7",
     title: "24/7 AI Multi-Agent Healthcare Monitoring: Real-Time Alerts for Lab, MRI, X-Ray, and ICU",
     excerpt:
